@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -667,6 +668,38 @@
             margin-top: 24px;
         }
 
+        /* Cart Item Styles */
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(30, 30, 46, 0.3);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .remove-item {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.3);
+            border: none;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .remove-item:hover {
+            background: rgba(255, 0, 0, 0.5);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h2 {
@@ -799,13 +832,13 @@
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="urso1.mp4" type="video/mp4">
-                                            <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+1" alt="Urso com Colar 1">
+                                            <img src="urso1.jpg" alt="Urso com Colar 1">
                                         </video>
                                     </div>
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="urso2.mp4" type="video/mp4">
-                                            <img src="https://placehold.co/400x400/9370DB/FFFFFF?text=Urso+2" alt="Urso com Colar 2">
+                                            <img src="urso2.jpg" alt="Urso com Colar 2">
                                         </video>
                                     </div>
                                 </div>
@@ -851,23 +884,19 @@
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="rosa1.mp4" type="video/mp4">
-                                            <img src="https://placehold.co/400x400/FF00C8/FFFFFF?text=Rosa+1" alt="Rosa Nebulosa 1">
+                                            <img src="rosa1.jpg" alt="Rosa Nebulosa 1">
                                         </video>
                                     </div>
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="rosa2.mp4" type="video/mp4">
-                                            <img src="https://placehold.co/400x400/FF69B4/FFFFFF?text=Rosa+2" alt="Rosa Nebulosa 2">
+                                            <img src="rosa2.jpg" alt="Rosa Nebulosa 2">
                                         </video>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="fundo.png" alt="Rosa Nebulosa 3" class="carousel-media">
                                     </div>
                                 </div>
                                 <div class="carousel-controls" id="controls-rosa">
                                     <div class="carousel-dot active" onclick="changeSlide('rosa', 0)"></div>
                                     <div class="carousel-dot" onclick="changeSlide('rosa', 1)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('rosa', 2)"></div>
                                 </div>
                             </div>
                             <div class="view-3d-btn">
@@ -907,11 +936,11 @@
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="colar.mp4" type="video/mp4">
-                                            <img src="https://placehold.co/400x400/00F5FF/000000?text=Relógio+1" alt="Relógio Estelar 1">
+                                            <img src="relogio1.jpg" alt="Relógio Estelar 1">
                                         </video>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="fundo.png" alt="Relógio Estelar 2" class="carousel-media">
+                                        <img src="relogio2.jpg" alt="Relógio Estelar 2" class="carousel-media">
                                     </div>
                                 </div>
                                 <div class="carousel-controls" id="controls-relogio">
@@ -1150,13 +1179,13 @@
         let cart = [];
         let currentProductId = null;
 
-        // Product data with detailed specifications
+        // Product data with detailed specifications and images
         const products = {
             urso: {
                 name: "Urso com Colar",
                 description: "Urso de pelúcia com rosa, colar e anel",
                 price: 299.99,
-                image: "urso3.png",
+                image: "urso3.jpg",
                 paymentLink: "https://go.plumify.com.br/zblquyx3e8",
                 specifications: [
                     "Altura: 30 cm",
@@ -1174,7 +1203,7 @@
                 name: "Rosa Nebulosa",
                 description: "Rosa eterna preservada com tecnologia de criogenia avançada, encapsulada em esfera de vidro com campo anti-gravidade e iluminação LED RGB personalizável via aplicativo.",
                 price: 189.99,
-                image: "https://placehold.co/400x400/FF00C8/FFFFFF?text=Rosa+Nebulosa",
+                image: "rosa3.jpg",
                 paymentLink: "https://example.com/payment/rosa",
                 specifications: [
                     "Altura total: 25 cm",
@@ -1191,7 +1220,7 @@
                 name: "Relógio Estelar",
                 description: "Relógio inteligente com projeção holográfica de constelações. Mostra as estrelas visíveis no céu na data e local do seu primeiro encontro.",
                 price: 599.99,
-                image: "https://placehold.co/400x400/00F5FF/000000?text=Relógio+3D",
+                image: "relogio3.jpg",
                 paymentLink: "https://example.com/payment/relogio",
                 specifications: [
                     "Caixa: 42mm de diâmetro",
@@ -1243,7 +1272,7 @@
             const quantityInput = document.getElementById(`quantity-${productId}`);
             const quantity = parseInt(quantityInput.value) || 1;
 
-            // Update modal content
+            // Update modal content with product image
             document.getElementById('modalImage').src = product.image;
             document.getElementById('modalProductName').textContent = product.name;
             document.getElementById('modalDescription').textContent = product.description;
@@ -1390,6 +1419,12 @@
             document.getElementById('cartModal').style.display = 'none';
         }
 
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+        }
+
         function renderCart() {
             const cartItemsList = document.getElementById('cartItemsList');
             const emptyCartMessage = document.getElementById('emptyCartMessage');
@@ -1408,10 +1443,8 @@
                 
                 cart.forEach((item, index) => {
                     const itemDiv = document.createElement('div');
-                    itemDiv.style.marginBottom = '20px';
-                    itemDiv.style.padding = '15px';
-                    itemDiv.style.background = 'rgba(30, 30, 46, 0.3)';
-                    itemDiv.style.borderRadius = '12px';
+                    itemDiv.className = 'cart-item';
+                    itemDiv.style.position = 'relative';
                     
                     let details = '';
                     if (item.accessory) details += `Acessório: ${item.accessory.charAt(0).toUpperCase() + item.accessory.slice(1)}<br>`;
@@ -1421,17 +1454,16 @@
                     if (item.color) details += `Cor: ${item.color.charAt(0).toUpperCase() + item.color.slice(1)}<br>`;
                     
                     itemDiv.innerHTML = `
-                        <div style="display: flex; gap: 15px;">
-                            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
-                            <div style="flex: 1;">
-                                <h4 style="margin-bottom: 5px;">${item.name}</h4>
-                                <div style="color: #a0a0c0; font-size: 14px; margin-bottom: 8px;">
-                                    ${details}
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <span style="font-weight: bold; color: #8A2BE2;">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
-                                    <span>Quantidade: ${item.quantity}</span>
-                                </div>
+                        <button class="remove-item" onclick="removeItem(${index})">×</button>
+                        <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <h4 style="margin-bottom: 5px;">${item.name}</h4>
+                            <div style="color: #a0a0c0; font-size: 14px; margin-bottom: 8px;">
+                                ${details}
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-weight: bold; color: #8A2BE2;">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                                <span>Quantidade: ${item.quantity}</span>
                             </div>
                         </div>
                     `;
@@ -1483,3 +1515,4 @@
     </script>
 </body>
 </html>
+```
