@@ -241,20 +241,6 @@
             position: relative;
         }
 
-        .video-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background: #1e1e2e;
-        }
-
         .carousel {
             width: 100%;
             height: 100%;
@@ -271,16 +257,18 @@
         .carousel-item {
             min-width: 100%;
             height: 100%;
+            position: relative;
         }
 
-        .carousel-item img {
+        .carousel-item img,
+        .carousel-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
 
-        .product-card:hover .carousel-item img {
+        .product-card:hover .carousel-item img,
+        .product-card:hover .carousel-item video {
             transform: scale(1.1);
         }
 
@@ -806,18 +794,32 @@
                     <!-- Product 1 - Urso com Colar -->
                     <div class="product-card" data-category="joias">
                         <div class="product-image-container">
-                            <div class="video-container">
-                                <video class="product-video" muted loop autoplay playsinline>
-                                    <source src="video1.mp4" type="video/mp4">
-                                    <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+com+Colar" alt="Urso com Colar">
-                                </video>
+                            <div class="carousel">
+                                <div class="carousel-inner" id="carousel-urso">
+                                    <div class="carousel-item">
+                                        <video muted loop playsinline class="carousel-media">
+                                            <source src="urso1.mp4" type="video/mp4">
+                                            <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+1" alt="Urso com Colar 1">
+                                        </video>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <video muted loop playsinline class="carousel-media">
+                                            <source src="urso2.mp4" type="video/mp4">
+                                            <img src="https://placehold.co/400x400/9370DB/FFFFFF?text=Urso+2" alt="Urso com Colar 2">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="carousel-controls" id="controls-urso">
+                                    <div class="carousel-dot active" onclick="changeSlide('urso', 0)"></div>
+                                    <div class="carousel-dot" onclick="changeSlide('urso', 1)"></div>
+                                </div>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
                             </div>
                         </div>
                         <h3 class="product-name">Urso com Colar</h3>
-                        <p class="product-description">Urso de pelúcia inteligente com colar holográfico que exibe mensagens personalizadas e responde ao toque.</p>
+                        <p class="product-description">Urso de pelúcia com rosa, colar e anel</p>
                         <div class="rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -844,11 +846,25 @@
                     <!-- Product 2 - Rosa Nebulosa -->
                     <div class="product-card" data-category="flores">
                         <div class="product-image-container">
-                            <div class="video-container">
-                                <video class="product-video" muted loop autoplay playsinline>
-                                    <source src="video2.mp4" type="video/mp4">
-                                    <img src="https://placehold.co/400x400/FF00C8/FFFFFF?text=Rosa+Nebulosa" alt="Rosa Nebulosa">
-                                </video>
+                            <div class="carousel">
+                                <div class="carousel-inner" id="carousel-rosa">
+                                    <div class="carousel-item">
+                                        <video muted loop playsinline class="carousel-media">
+                                            <source src="rosa1.mp4" type="video/mp4">
+                                            <img src="https://placehold.co/400x400/FF00C8/FFFFFF?text=Rosa+1" alt="Rosa Nebulosa 1">
+                                        </video>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <video muted loop playsinline class="carousel-media">
+                                            <source src="rosa2.mp4" type="video/mp4">
+                                            <img src="https://placehold.co/400x400/FF69B4/FFFFFF?text=Rosa+2" alt="Rosa Nebulosa 2">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="carousel-controls" id="controls-rosa">
+                                    <div class="carousel-dot active" onclick="changeSlide('rosa', 0)"></div>
+                                    <div class="carousel-dot" onclick="changeSlide('rosa', 1)"></div>
+                                </div>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
@@ -882,11 +898,22 @@
                     <!-- Product 3 - Relógio Estelar -->
                     <div class="product-card" data-category="tecnologia">
                         <div class="product-image-container">
-                            <div class="video-container">
-                                <video class="product-video" muted loop autoplay playsinline>
-                                    <source src="video5.mp4" type="video/mp4">
-                                    <img src="https://placehold.co/400x400/00F5FF/000000?text=Relógio+3D" alt="Relógio Estelar">
-                                </video>
+                            <div class="carousel">
+                                <div class="carousel-inner" id="carousel-relogio">
+                                    <div class="carousel-item">
+                                        <video muted loop playsinline class="carousel-media">
+                                            <source src="colar.mp4" type="video/mp4">
+                                            <img src="https://placehold.co/400x400/00F5FF/000000?text=Relógio+1" alt="Relógio Estelar 1">
+                                        </video>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://placehold.co/400x400/40E0D0/000000?text=Relógio+2" alt="Relógio Estelar 2" class="carousel-media">
+                                    </div>
+                                </div>
+                                <div class="carousel-controls" id="controls-relogio">
+                                    <div class="carousel-dot active" onclick="changeSlide('relogio', 0)"></div>
+                                    <div class="carousel-dot" onclick="changeSlide('relogio', 1)"></div>
+                                </div>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
@@ -936,11 +963,16 @@
                         <h4>Especificações Técnicas:</h4>
                         <ul id="modalSpecifications"></ul>
                     </div>
-                    <div class="price-display" id="modalPrice"></div>
+                    <div class="price-display" id="modalPrice">R$ 299,99</div>
                 </div>
             </div>
 
             <form id="orderForm">
+                <div class="form-group" id="accessoryGroup">
+                    <label>Acessório:</label>
+                    <div class="radio-group" id="accessoryOptions"></div>
+                </div>
+
                 <div class="form-group" id="sizeGroup">
                     <label for="size">Tamanho:</label>
                     <select id="size" class="form-control"></select>
@@ -1034,6 +1066,47 @@
     </a>
 
     <script>
+        // Carousel functionality
+        function changeSlide(productId, index) {
+            const carouselInner = document.getElementById(`carousel-${productId}`);
+            const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
+            
+            // Update carousel position
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active dot
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // Play video if it's the active slide
+            const videos = carouselInner.querySelectorAll('video');
+            videos.forEach((video, i) => {
+                if (i === index) {
+                    video.play().catch(e => console.log('Autoplay prevented:', e));
+                } else {
+                    video.pause();
+                }
+            });
+        }
+
+        // Auto-rotate carousels
+        function autoRotateCarousels() {
+            const products = ['urso', 'rosa', 'relogio'];
+            products.forEach(productId => {
+                let currentIndex = 0;
+                setInterval(() => {
+                    const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
+                    currentIndex = (currentIndex + 1) % dots.length;
+                    changeSlide(productId, currentIndex);
+                }, 5000);
+            });
+        }
+
         // Quantity control functions with price update for all products
         function changeQuantity(productId, change) {
             const input = document.getElementById(`quantity-${productId}`);
@@ -1055,6 +1128,13 @@
             if (value < 1) value = 1;
             if (value > 10) value = 10;
             input.value = value;
+            
+            // Update price in modal
+            if (currentProductId) {
+                const product = products[currentProductId];
+                const newPrice = product.price * value;
+                document.getElementById('modalPrice').textContent = `R$ ${newPrice.toFixed(2).replace('.', ',')}`;
+            }
         }
 
         // Cart functionality
@@ -1065,7 +1145,7 @@
         const products = {
             urso: {
                 name: "Urso com Colar",
-                description: "Urso de pelúcia inteligente com colar holográfico que exibe mensagens personalizadas e responde ao toque.",
+                description: "Urso de pelúcia com rosa, colar e anel",
                 price: 299.99,
                 image: "https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+com+Colar",
                 paymentLink: "https://go.plumify.com.br/zblquyx3e8",
@@ -1078,7 +1158,8 @@
                 ],
                 sizes: ["pequeno", "médio", "grande"],
                 materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
-                colors: ["roxo", "rosa", "azul"]
+                colors: ["roxo", "rosa", "azul"],
+                accessories: ["colar", "anel"]
             },
             rosa: {
                 name: "Rosa Nebulosa",
@@ -1148,6 +1229,25 @@
                 specsList.appendChild(li);
             });
             
+            // Handle accessory option for urso
+            const accessoryGroup = document.getElementById('accessoryGroup');
+            const accessoryOptions = document.getElementById('accessoryOptions');
+            if (productId === 'urso' && product.accessories) {
+                accessoryGroup.style.display = 'block';
+                accessoryOptions.innerHTML = '';
+                product.accessories.forEach(accessory => {
+                    const div = document.createElement('div');
+                    div.className = 'radio-option';
+                    div.innerHTML = `
+                        <input type="radio" id="${accessory}" name="accessory" value="${accessory}" ${accessory === 'colar' ? 'checked' : ''}>
+                        <label for="${accessory}">${accessory.charAt(0).toUpperCase() + accessory.slice(1)}</label>
+                    `;
+                    accessoryOptions.appendChild(div);
+                });
+            } else {
+                accessoryGroup.style.display = 'none';
+            }
+            
             // Update form fields based on product
             const sizeGroup = document.getElementById('sizeGroup');
             const materialGroup = document.getElementById('materialGroup');
@@ -1213,6 +1313,8 @@
             if (!currentProductId) return;
             
             const product = products[currentProductId];
+            const accessory = document.getElementById('accessoryGroup').style.display !== 'none' ? 
+                document.querySelector('input[name="accessory"]:checked')?.value : null;
             const size = document.getElementById('sizeGroup').style.display !== 'none' ? 
                 document.getElementById('size').value : null;
             const material = document.getElementById('materialGroup').style.display !== 'none' ? 
@@ -1227,6 +1329,7 @@
                 name: product.name,
                 price: product.price,
                 image: product.image,
+                accessory: accessory,
                 size: size,
                 material: material,
                 color: color,
@@ -1275,6 +1378,7 @@
                     itemDiv.style.borderRadius = '12px';
                     
                     let details = '';
+                    if (item.accessory) details += `Acessório: ${item.accessory.charAt(0).toUpperCase() + item.accessory.slice(1)}<br>`;
                     if (item.size) details += `Tamanho: ${item.size.charAt(0).toUpperCase() + item.size.slice(1)}<br>`;
                     if (item.material) details += `Material: ${item.material.charAt(0).toUpperCase() + item.material.slice(1)}<br>`;
                     if (item.color) details += `Cor: ${item.color.charAt(0).toUpperCase() + item.color.slice(1)}<br>`;
@@ -1326,14 +1430,17 @@
             }
         };
 
-        // Initialize videos
+        // Initialize carousels and videos
         document.addEventListener('DOMContentLoaded', function() {
-            // Ensure videos play
-            const videos = document.querySelectorAll('.product-video');
-            videos.forEach(video => {
-                video.addEventListener('loadeddata', function() {
-                    video.play().catch(e => console.log('Autoplay prevented:', e));
-                });
+            autoRotateCarousels();
+            
+            // Play first video in each carousel
+            const carousels = ['urso', 'rosa', 'relogio'];
+            carousels.forEach(carouselId => {
+                const firstVideo = document.querySelector(`#carousel-${carouselId} .carousel-item:first-child video`);
+                if (firstVideo) {
+                    firstVideo.play().catch(e => console.log('Autoplay prevented:', e));
+                }
             });
         });
     </script>
