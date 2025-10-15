@@ -14,50 +14,23 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0D0D15 0%, #1a1a2e 100%);
+            background: url('fundo.png') no-repeat center center fixed;
+            background-size: cover;
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        .background-animation {
-            position: fixed;
+        body::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .pulse-circle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: pulse 4s infinite ease-in-out;
-        }
-
-        .pulse-circle:nth-child(1) {
-            top: 25%;
-            left: 25%;
-            width: 384px;
-            height: 384px;
-            background: rgba(138, 43, 226, 0.05);
-        }
-
-        .pulse-circle:nth-child(2) {
-            bottom: 25%;
-            right: 25%;
-            width: 384px;
-            height: 384px;
-            background: rgba(255, 0, 200, 0.05);
-            animation-delay: 1s;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: -1;
         }
 
         .container {
@@ -138,34 +111,14 @@
             justify-content: center;
         }
 
-        /* Hero Section with Image */
+        /* Hero Section */
         .hero {
             text-align: center;
             padding: 80px 0 60px;
-            position: relative;
-            background: url('fundo.png') no-repeat center center;
-            background-size: cover;
             min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
         }
 
         .hero h2 {
@@ -190,10 +143,6 @@
             margin: 0 auto 40px;
             line-height: 1.6;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-buttons {
-            display: none;
         }
 
         /* Products Section */
@@ -270,28 +219,6 @@
         .product-card:hover .carousel-item img,
         .product-card:hover .carousel-item video {
             transform: scale(1.1);
-        }
-
-        .carousel-controls {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-        }
-
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: white;
         }
 
         .view-3d-btn {
@@ -747,15 +674,6 @@
                 height: 150px;
             }
             
-            .carousel-controls {
-                bottom: 5px;
-            }
-            
-            .carousel-dot {
-                width: 6px;
-                height: 6px;
-            }
-            
             .hero {
                 min-height: 300px;
                 padding: 40px 0 20px;
@@ -780,11 +698,6 @@
     </style>
 </head>
 <body>
-    <div class="background-animation">
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-    </div>
-
     <header>
         <div class="container">
             <div class="header-content">
@@ -795,9 +708,7 @@
                     <div class="logo-text">NeoLove</div>
                 </div>
                 
-                <nav>
-                    <!-- Botões removidos -->
-                </nav>
+                <nav></nav>
                 
                 <div class="cart-icon" onclick="openCart()">
                     <i class="fas fa-shopping-cart" style="font-size: 24px; color: #a0a0c0;"></i>
@@ -809,13 +720,11 @@
 
     <main>
         <section class="hero">
-            <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h2>
                     <span>Presentes do Futuro</span>
                 </h2>
                 <p>Celebre o amor com tecnologia de ponta e designs imersivos que transcendem o tempo e o espaço</p>
-                <!-- Botões removidos -->
             </div>
         </section>
 
@@ -875,15 +784,15 @@
                         </div>
                     </div>
 
-                    <!-- Product 2 - Rosa Nebulosa -->
+                    <!-- Product 2 - Rosa com Anel e Colar -->
                     <div class="product-card" data-category="flores">
                         <div class="product-image-container">
                             <div class="carousel">
                                 <div class="carousel-inner" id="carousel-rosa">
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
-                                            <source src="rosa1.mp4" type="video/mp4">
-                                            <img src="rosa2.mp4" type="video/mp4">
+                                            <source src="rosa.mp4" type="video/mp4">
+                                            <img src="rosa1.jpg" alt="Rosa com Anel e Colar">
                                         </video>
                                     </div>
                                 </div>
@@ -895,8 +804,8 @@
                                 <i class="fas fa-search-plus"></i>
                             </div>
                         </div>
-                        <h3 class="product-name">Rosa Nebulosa</h3>
-                        <p class="product-description">Rosa eterna encapsulada em campo anti-gravidade com iluminação LED personalizável.</p>
+                        <h3 class="product-name">Rosa com Anel e Colar</h3>
+                        <p class="product-description">Rosa eterna com anel e colar holográficos - o símbolo perfeito do amor eterno</p>
                         <div class="rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -920,7 +829,7 @@
                         </div>
                     </div>
 
-                    <!-- Product 3 - Relógio Estelar -->
+                    <!-- Product 3 - Relicário -->
                     <div class="product-card" data-category="tecnologia">
                         <div class="product-image-container">
                             <div class="carousel">
@@ -928,7 +837,7 @@
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="colar.mp4" type="video/mp4">
-                                            <img src="fundo.png" alt="Relógio Estelar">
+                                            <img src="relogio1.jpg" alt="Relicário">
                                         </video>
                                     </div>
                                 </div>
@@ -940,8 +849,8 @@
                                 <i class="fas fa-search-plus"></i>
                             </div>
                         </div>
-                        <h3 class="product-name">Relógio Estelar</h3>
-                        <p class="product-description">Relógio inteligente com projeção de constelações e rastreamento de momentos especiais.</p>
+                        <h3 class="product-name">Relicário</h3>
+                        <p class="product-description">Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica</p>
                         <div class="rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1096,31 +1005,19 @@
         function changeSlide(productId, index) {
             const carouselInner = document.getElementById(`carousel-${productId}`);
             const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
-            
-            // Update carousel position
             carouselInner.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update active dot
             dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+                if (i === index) dot.classList.add('active');
+                else dot.classList.remove('active');
             });
-            
-            // Play video if it's the active slide
             const videos = carouselInner.querySelectorAll('video');
             videos.forEach((video, i) => {
-                if (i === index) {
-                    video.play().catch(e => console.log('Autoplay prevented:', e));
-                } else {
-                    video.pause();
-                }
+                if (i === index) video.play().catch(e => console.log('Autoplay prevented:', e));
+                else video.pause();
             });
         }
 
-        // Auto-rotate carousels (only for urso since others have single item)
+        // Auto-rotate carousels (only for urso)
         function autoRotateCarousels() {
             const ursoDots = document.querySelectorAll('#controls-urso .carousel-dot');
             if (ursoDots.length > 1) {
@@ -1132,15 +1029,13 @@
             }
         }
 
-        // Quantity control functions with price update for all products
+        // Quantity control functions
         function changeQuantity(productId, change) {
             const input = document.getElementById(`quantity-${productId}`);
             let value = parseInt(input.value) + change;
             if (value < 1) value = 1;
             if (value > 10) value = 10;
             input.value = value;
-            
-            // Update price display for all products
             const priceElement = document.getElementById(`price-${productId}`);
             const basePrice = products[productId].price;
             const newPrice = basePrice * value;
@@ -1153,8 +1048,6 @@
             if (value < 1) value = 1;
             if (value > 10) value = 10;
             input.value = value;
-            
-            // Update price in modal
             if (currentProductId) {
                 const product = products[currentProductId];
                 const newPrice = product.price * value;
@@ -1166,7 +1059,6 @@
         let cart = [];
         let currentProductId = null;
 
-        // Product data with detailed specifications and images
         const products = {
             urso: {
                 name: "Urso com Colar",
@@ -1187,10 +1079,10 @@
                 accessories: ["colar", "anel"]
             },
             rosa: {
-                name: "Rosa Nebulosa",
-                description: "Rosa eterna preservada com tecnologia de criogenia avançada, encapsulada em esfera de vidro com campo anti-gravidade e iluminação LED RGB personalizável via aplicativo.",
+                name: "Rosa com Anel e Colar",
+                description: "Rosa eterna com anel e colar holográficos - o símbolo perfeito do amor eterno",
                 price: 189.99,
-                image: "rosa1.mp4",
+                image: "rosa3.jpg",
                 paymentLink: "https://example.com/payment/rosa",
                 specifications: [
                     "Altura total: 25 cm",
@@ -1204,10 +1096,10 @@
                 colors: ["vermelha", "rosa", "branca", "azul"]
             },
             relogio: {
-                name: "Relógio Estelar",
-                description: "Relógio inteligente com projeção holográfica de constelações. Mostra as estrelas visíveis no céu na data e local do seu primeiro encontro.",
+                name: "Relicário",
+                description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
                 price: 599.99,
-                image: "colar.mp4",
+                image: "relogio3.jpg",
                 paymentLink: "https://example.com/payment/relogio",
                 specifications: [
                     "Caixa: 42mm de diâmetro",
@@ -1222,19 +1114,15 @@
             }
         };
 
-        // Update cart count display
         function updateCartCount() {
             const count = cart.reduce((total, item) => total + item.quantity, 0);
             document.querySelector('.cart-count').textContent = count;
         }
 
-        // Handle accessory selection for urso
         function handleAccessoryChange() {
             const ringSizeGroup = document.getElementById('ringSizeGroup');
             const ringSizeSelect = document.getElementById('ringSize');
-            
             const selectedAccessory = document.querySelector('input[name="accessory"]:checked')?.value;
-            
             if (selectedAccessory === 'anel') {
                 ringSizeGroup.style.display = 'block';
                 ringSizeSelect.innerHTML = '';
@@ -1249,24 +1137,17 @@
             }
         }
 
-        // Modal functionality
         function openOrderModal(productId) {
             currentProductId = productId;
             const product = products[productId];
             if (!product) return;
-
-            // Get quantity from product card
             const quantityInput = document.getElementById(`quantity-${productId}`);
             const quantity = parseInt(quantityInput.value) || 1;
-
-            // Update modal content with product image
             document.getElementById('modalImage').src = product.image;
             document.getElementById('modalProductName').textContent = product.name;
             document.getElementById('modalDescription').textContent = product.description;
             document.getElementById('modalPrice').textContent = `R$ ${(product.price * quantity).toFixed(2).replace('.', ',')}`;
             document.getElementById('modal-quantity').value = quantity;
-            
-            // Update specifications
             const specsList = document.getElementById('modalSpecifications');
             specsList.innerHTML = '';
             product.specifications.forEach(spec => {
@@ -1274,8 +1155,6 @@
                 li.textContent = spec;
                 specsList.appendChild(li);
             });
-            
-            // Handle accessory option for urso
             const accessoryGroup = document.getElementById('accessoryGroup');
             const accessoryOptions = document.getElementById('accessoryOptions');
             if (productId === 'urso' && product.accessories) {
@@ -1290,22 +1169,17 @@
                     `;
                     accessoryOptions.appendChild(div);
                 });
-                // Initialize ring size visibility
                 handleAccessoryChange();
             } else {
                 accessoryGroup.style.display = 'none';
                 document.getElementById('ringSizeGroup').style.display = 'none';
             }
-            
-            // Update form fields based on product
             const sizeGroup = document.getElementById('sizeGroup');
             const materialGroup = document.getElementById('materialGroup');
             const colorGroup = document.getElementById('colorGroup');
             const sizeSelect = document.getElementById('size');
             const materialOptions = document.getElementById('materialOptions');
             const colorSelect = document.getElementById('color');
-            
-            // Handle sizes
             if (product.sizes.length > 0) {
                 sizeGroup.style.display = 'block';
                 sizeSelect.innerHTML = '';
@@ -1318,8 +1192,6 @@
             } else {
                 sizeGroup.style.display = 'none';
             }
-            
-            // Handle materials
             if (product.materials.length > 0) {
                 materialGroup.style.display = 'block';
                 materialOptions.innerHTML = '';
@@ -1335,8 +1207,6 @@
             } else {
                 materialGroup.style.display = 'none';
             }
-            
-            // Handle colors
             if (product.colors.length > 0) {
                 colorGroup.style.display = 'block';
                 colorSelect.innerHTML = '';
@@ -1349,7 +1219,6 @@
             } else {
                 colorGroup.style.display = 'none';
             }
-            
             document.getElementById('orderModal').style.display = 'flex';
         }
 
@@ -1360,7 +1229,6 @@
 
         function addToCart() {
             if (!currentProductId) return;
-            
             const product = products[currentProductId];
             const accessory = document.getElementById('accessoryGroup').style.display !== 'none' ? 
                 document.querySelector('input[name="accessory"]:checked')?.value : null;
@@ -1373,8 +1241,6 @@
             const color = document.getElementById('colorGroup').style.display !== 'none' ? 
                 document.getElementById('color').value : null;
             const quantity = parseInt(document.getElementById('modal-quantity').value) || 1;
-            
-            // Create cart item
             const cartItem = {
                 id: currentProductId,
                 name: product.name,
@@ -1387,13 +1253,9 @@
                 color: color,
                 quantity: quantity
             };
-            
-            // Add to cart
             cart.push(cartItem);
             updateCartCount();
             closeModal();
-            
-            // Show success message
             alert('Produto adicionado ao carrinho com sucesso!');
         }
 
@@ -1416,7 +1278,6 @@
             const cartItemsList = document.getElementById('cartItemsList');
             const emptyCartMessage = document.getElementById('emptyCartMessage');
             const cartTotal = document.getElementById('cartTotal');
-            
             if (cart.length === 0) {
                 emptyCartMessage.style.display = 'block';
                 cartItemsList.style.display = 'none';
@@ -1424,22 +1285,18 @@
             } else {
                 emptyCartMessage.style.display = 'none';
                 cartItemsList.style.display = 'block';
-                
                 cartItemsList.innerHTML = '';
                 let total = 0;
-                
                 cart.forEach((item, index) => {
                     const itemDiv = document.createElement('div');
                     itemDiv.className = 'cart-item';
                     itemDiv.style.position = 'relative';
-                    
                     let details = '';
                     if (item.accessory) details += `Acessório: ${item.accessory.charAt(0).toUpperCase() + item.accessory.slice(1)}<br>`;
                     if (item.ringSize) details += `Tamanho do Anel: ${item.ringSize}<br>`;
                     if (item.size) details += `Tamanho: ${item.size.charAt(0).toUpperCase() + item.size.slice(1)}<br>`;
                     if (item.material) details += `Material: ${item.material.charAt(0).toUpperCase() + item.material.slice(1)}<br>`;
                     if (item.color) details += `Cor: ${item.color.charAt(0).toUpperCase() + item.color.slice(1)}<br>`;
-                    
                     itemDiv.innerHTML = `
                         <button class="remove-item" onclick="removeItem(${index})">×</button>
                         <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
@@ -1454,11 +1311,9 @@
                             </div>
                         </div>
                     `;
-                    
                     cartItemsList.appendChild(itemDiv);
                     total += item.price * item.quantity;
                 });
-                
                 cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
             }
         }
@@ -1468,35 +1323,22 @@
                 alert('Seu carrinho está vazio!');
                 return;
             }
-            
-            // Redirect to payment page
             window.location.href = "https://go.plumify.com.br/zblquyx3e8";
         }
 
-        // Close modals when clicking outside
         window.onclick = function(event) {
             const orderModal = document.getElementById('orderModal');
             const cartModal = document.getElementById('cartModal');
-            
-            if (event.target === orderModal) {
-                closeModal();
-            }
-            if (event.target === cartModal) {
-                closeCart();
-            }
+            if (event.target === orderModal) closeModal();
+            if (event.target === cartModal) closeCart();
         };
 
-        // Initialize carousels and videos
         document.addEventListener('DOMContentLoaded', function() {
             autoRotateCarousels();
-            
-            // Play first video in each carousel
             const carousels = ['urso', 'rosa', 'relogio'];
             carousels.forEach(carouselId => {
                 const firstVideo = document.querySelector(`#carousel-${carouselId} .carousel-item:first-child video`);
-                if (firstVideo) {
-                    firstVideo.play().catch(e => console.log('Autoplay prevented:', e));
-                }
+                if (firstVideo) firstVideo.play().catch(e => console.log('Autoplay prevented:', e));
             });
         });
     </script>
