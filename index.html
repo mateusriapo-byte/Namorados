@@ -884,19 +884,12 @@
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="rosa1.mp4" type="video/mp4">
-                                            <img src="rosa1.jpg" alt="Rosa Nebulosa 1">
-                                        </video>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <video muted loop playsinline class="carousel-media">
-                                            <source src="rosa2.mp4" type="video/mp4">
-                                            <img src="rosa2.jpg" alt="Rosa Nebulosa 2">
+                                            <img src="rosa2.mp4" type="video/mp4">
                                         </video>
                                     </div>
                                 </div>
                                 <div class="carousel-controls" id="controls-rosa">
-                                    <div class="carousel-dot active" onclick="changeSlide('rosa', 0)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('rosa', 1)"></div>
+                                    <div class="carousel-dot active"></div>
                                 </div>
                             </div>
                             <div class="view-3d-btn">
@@ -936,16 +929,12 @@
                                     <div class="carousel-item">
                                         <video muted loop playsinline class="carousel-media">
                                             <source src="colar.mp4" type="video/mp4">
-                                            <img src="relogio1.jpg" alt="Relógio Estelar 1">
+                                            <img src="fundo.png" alt="Relógio Estelar">
                                         </video>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="relogio2.jpg" alt="Relógio Estelar 2" class="carousel-media">
                                     </div>
                                 </div>
                                 <div class="carousel-controls" id="controls-relogio">
-                                    <div class="carousel-dot active" onclick="changeSlide('relogio', 0)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('relogio', 1)"></div>
+                                    <div class="carousel-dot active"></div>
                                 </div>
                             </div>
                             <div class="view-3d-btn">
@@ -1132,17 +1121,16 @@
             });
         }
 
-        // Auto-rotate carousels
+        // Auto-rotate carousels (only for urso since others have single item)
         function autoRotateCarousels() {
-            const products = ['urso', 'rosa', 'relogio'];
-            products.forEach(productId => {
+            const ursoDots = document.querySelectorAll('#controls-urso .carousel-dot');
+            if (ursoDots.length > 1) {
                 let currentIndex = 0;
                 setInterval(() => {
-                    const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
-                    currentIndex = (currentIndex + 1) % dots.length;
-                    changeSlide(productId, currentIndex);
+                    currentIndex = (currentIndex + 1) % ursoDots.length;
+                    changeSlide('urso', currentIndex);
                 }, 5000);
-            });
+            }
         }
 
         // Quantity control functions with price update for all products
@@ -1203,7 +1191,7 @@
                 name: "Rosa Nebulosa",
                 description: "Rosa eterna preservada com tecnologia de criogenia avançada, encapsulada em esfera de vidro com campo anti-gravidade e iluminação LED RGB personalizável via aplicativo.",
                 price: 189.99,
-                image: "rosa3.jpg",
+                image: "rosa1.mp4",
                 paymentLink: "https://example.com/payment/rosa",
                 specifications: [
                     "Altura total: 25 cm",
@@ -1220,7 +1208,7 @@
                 name: "Relógio Estelar",
                 description: "Relógio inteligente com projeção holográfica de constelações. Mostra as estrelas visíveis no céu na data e local do seu primeiro encontro.",
                 price: 599.99,
-                image: "relogio3.jpg",
+                image: "colar.mp4",
                 paymentLink: "https://example.com/payment/relogio",
                 specifications: [
                     "Caixa: 42mm de diâmetro",
@@ -1515,4 +1503,3 @@
     </script>
 </body>
 </html>
-```
