@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,7 +12,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('fundo.png') no-repeat center center fixed;
@@ -21,7 +21,6 @@
             overflow-x: hidden;
             position: relative;
         }
-
         body::before {
             content: '';
             position: absolute;
@@ -32,7 +31,6 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
             z-index: -1;
         }
-
         .container {
             position: relative;
             z-index: 10;
@@ -40,7 +38,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
         /* Header Styles - Transparente */
         header {
             background: transparent;
@@ -50,20 +47,17 @@
             top: 0;
             z-index: 100;
         }
-
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-
         .logo-icon {
             width: 40px;
             height: 40px;
@@ -73,12 +67,10 @@
             align-items: center;
             justify-content: center;
         }
-
         .logo-icon i {
             color: white;
             font-size: 20px;
         }
-
         .logo-text {
             background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
             -webkit-background-clip: text;
@@ -86,31 +78,9 @@
             font-size: 24px;
             font-weight: bold;
         }
-
         nav {
             display: none;
         }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #FF00C8;
-            color: white;
-            font-size: 10px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         /* Hero Section */
         .hero {
             text-align: center;
@@ -120,7 +90,6 @@
             align-items: center;
             justify-content: center;
         }
-
         .hero h2 {
             font-size: 48px;
             font-weight: bold;
@@ -128,14 +97,12 @@
             line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
         .hero h2 span {
             background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 50%, #00F5FF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
-
         .hero p {
             font-size: 20px;
             color: #a0a0c0;
@@ -144,12 +111,10 @@
             line-height: 1.6;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-
         /* Products Section */
         .section {
             padding: 80px 0;
         }
-
         .section-title {
             text-align: center;
             font-size: 36px;
@@ -158,14 +123,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
             margin-top: 40px;
         }
-
         .product-card {
             background: rgba(30, 30, 46, 0.5);
             backdrop-filter: blur(10px);
@@ -175,12 +138,10 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         .product-card:hover {
             border-color: rgba(138, 43, 226, 0.6);
             transform: scale(1.02);
         }
-
         .product-image-container {
             height: 192px;
             border-radius: 12px;
@@ -189,38 +150,32 @@
             background: #1e1e2e;
             position: relative;
         }
-
         .carousel {
             width: 100%;
             height: 100%;
             position: relative;
             overflow: hidden;
         }
-
         .carousel-inner {
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: 100%;
         }
-
         .carousel-item {
             min-width: 100%;
             height: 100%;
             position: relative;
         }
-
         .carousel-item img,
         .carousel-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .product-card:hover .carousel-item img,
         .product-card:hover .carousel-item video {
             transform: scale(1.1);
         }
-
         .view-3d-btn {
             position: absolute;
             top: 16px;
@@ -236,22 +191,18 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
         .view-3d-btn:hover {
             background: rgba(0, 0, 0, 0.8);
         }
-
         .product-name {
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 12px;
             transition: color 0.3s ease;
         }
-
         .product-card:hover .product-name {
             color: #8A2BE2;
         }
-
         .product-description {
             color: #a0a0c0;
             font-size: 14px;
@@ -262,29 +213,24 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-
         .rating {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
         }
-
         .stars {
             color: #FFD700;
             margin-right: 8px;
         }
-
         .rating-value {
             color: #64748b;
             font-size: 14px;
         }
-
         .product-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .product-price {
             font-size: 24px;
             font-weight: bold;
@@ -292,46 +238,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(30, 30, 46, 0.8);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            border-radius: 8px;
-            padding: 4px;
-        }
-
-        .quantity-btn {
-            width: 28px;
-            height: 28px;
-            background: rgba(138, 43, 226, 0.3);
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .quantity-btn:hover {
-            background: rgba(138, 43, 226, 0.5);
-        }
-
-        .quantity-input {
-            width: 40px;
-            height: 28px;
-            background: transparent;
-            border: none;
-            color: white;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
         .buy-btn {
             background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
             color: white;
@@ -345,11 +251,9 @@
             gap: 8px;
             transition: all 0.3s ease;
         }
-
         .buy-btn:hover {
             transform: scale(1.05);
         }
-
         /* Footer */
         footer {
             background: rgba(0, 0, 0, 0.8);
@@ -358,13 +262,11 @@
             margin-top: 80px;
             padding: 60px 0 40px;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
         }
-
         .footer-section h3 {
             font-size: 20px;
             margin-bottom: 20px;
@@ -372,7 +274,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .footer-section p, .footer-section a {
             color: #a0a0c0;
             text-decoration: none;
@@ -381,17 +282,14 @@
             margin-bottom: 8px;
             transition: color 0.3s ease;
         }
-
         .footer-section a:hover {
             color: #8A2BE2;
         }
-
         .company-info {
             font-size: 14px;
             color: #64748b;
             line-height: 1.8;
         }
-
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -409,16 +307,13 @@
             z-index: 1000;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
         }
-
         .whatsapp-float i {
             font-size: 24px;
         }
-
         /* Modal Styles */
         .modal {
             display: none;
@@ -434,7 +329,6 @@
             align-items: center;
             padding: 20px;
         }
-
         .modal-content {
             background: linear-gradient(135deg, #1a1a2e 0%, #0D0D15 100%);
             border-radius: 20px;
@@ -446,7 +340,6 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-
         .close-modal {
             position: absolute;
             top: 20px;
@@ -458,11 +351,9 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .close-modal:hover {
             color: white;
         }
-
         .modal-title {
             font-size: 28px;
             margin-bottom: 24px;
@@ -471,13 +362,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .product-details {
             display: flex;
             gap: 24px;
             margin-bottom: 32px;
         }
-
         .modal-image {
             width: 200px;
             height: 200px;
@@ -485,47 +374,39 @@
             object-fit: cover;
             flex-shrink: 0;
         }
-
         .details-info {
             flex: 1;
             min-width: 0;
         }
-
         .details-info h3 {
             font-size: 24px;
             margin-bottom: 12px;
         }
-
         .details-info p {
             color: #a0a0c0;
             margin-bottom: 16px;
             line-height: 1.6;
         }
-
         .specifications {
             background: rgba(30, 30, 46, 0.3);
             padding: 16px;
             border-radius: 12px;
             margin-bottom: 16px;
         }
-
         .specifications h4 {
             color: #8A2BE2;
             margin-bottom: 8px;
             font-size: 16px;
         }
-
         .specifications ul {
             list-style: none;
             padding-left: 0;
         }
-
         .specifications li {
             color: #a0a0c0;
             margin-bottom: 4px;
             font-size: 14px;
         }
-
         .price-display {
             font-size: 28px;
             font-weight: bold;
@@ -534,18 +415,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: #a0a0c0;
             font-weight: 500;
         }
-
         .form-control {
             width: 100%;
             padding: 12px 16px;
@@ -555,18 +433,15 @@
             color: white;
             font-size: 16px;
         }
-
         .form-control:focus {
             outline: none;
             border-color: #8A2BE2;
         }
-
         .radio-group {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
         }
-
         .radio-option {
             display: flex;
             align-items: center;
@@ -577,122 +452,60 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
         .radio-option:hover {
             background: rgba(138, 43, 226, 0.2);
         }
-
         .radio-option input {
             width: 16px;
             height: 16px;
         }
-
         .btn-proceed {
             width: 100%;
             padding: 16px;
             font-size: 18px;
             margin-top: 24px;
         }
-
-        /* Cart Item Styles */
-        .cart-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(30, 30, 46, 0.3);
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .remove-item {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 0, 0, 0.3);
-            border: none;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .remove-item:hover {
-            background: rgba(255, 0, 0, 0.5);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h2 {
                 font-size: 36px;
             }
-            
             .hero p {
                 font-size: 16px;
             }
-            
             .header-content {
                 flex-wrap: wrap;
             }
-            
             .product-details {
                 flex-direction: column;
                 text-align: center;
             }
-            
             .modal-image {
                 margin: 0 auto;
             }
-            
             .whatsapp-float {
                 bottom: 20px;
                 right: 20px;
             }
-            
             .modal-content {
                 padding: 20px;
             }
-            
             .hero {
                 min-height: 400px;
                 padding: 60px 0 40px;
             }
         }
-        
         @media (max-width: 480px) {
             .product-details {
                 flex-direction: column;
             }
-            
             .modal-image {
                 width: 150px;
                 height: 150px;
             }
-            
             .hero {
                 min-height: 300px;
                 padding: 40px 0 20px;
-            }
-            
-            .quantity-control {
-                gap: 4px;
-            }
-            
-            .quantity-btn {
-                width: 24px;
-                height: 24px;
-                font-size: 14px;
-            }
-            
-            .quantity-input {
-                width: 32px;
-                height: 24px;
-                font-size: 14px;
             }
         }
     </style>
@@ -707,17 +520,10 @@
                     </div>
                     <div class="logo-text">NeoLove</div>
                 </div>
-                
                 <nav></nav>
-                
-                <div class="cart-icon" onclick="openCart()">
-                    <i class="fas fa-shopping-cart" style="font-size: 24px; color: #a0a0c0;"></i>
-                    <div class="cart-count">0</div>
-                </div>
             </div>
         </div>
     </header>
-
     <main>
         <section class="hero">
             <div class="hero-content">
@@ -727,7 +533,6 @@
                 <p>Celebre o amor com tecnologia de ponta e designs imersivos que transcendem o tempo e o espaço</p>
             </div>
         </section>
-
         <section class="section">
             <div class="container">
                 <h2 class="section-title">Nossos Produtos</h2>
@@ -772,18 +577,12 @@
                             <span class="rating-value">(4.8)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price" id="price-urso">R$ 299,99</span>
-                            <div class="quantity-control">
-                                <button class="quantity-btn" onclick="changeQuantity('urso', -1)">-</button>
-                                <input type="number" class="quantity-input" id="quantity-urso" value="1" min="1" max="10">
-                                <button class="quantity-btn" onclick="changeQuantity('urso', 1)">+</button>
-                            </div>
+                            <span class="product-price">R$ 299,99</span>
                             <button class="buy-btn" onclick="openOrderModal('urso')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
                         </div>
                     </div>
-
                     <!-- Product 2 - Rosa com Anel e Colar -->
                     <div class="product-card" data-category="flores">
                         <div class="product-image-container">
@@ -817,18 +616,12 @@
                             <span class="rating-value">(4.9)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price" id="price-rosa">R$ 189,99</span>
-                            <div class="quantity-control">
-                                <button class="quantity-btn" onclick="changeQuantity('rosa', -1)">-</button>
-                                <input type="number" class="quantity-input" id="quantity-rosa" value="1" min="1" max="10">
-                                <button class="quantity-btn" onclick="changeQuantity('rosa', 1)">+</button>
-                            </div>
+                            <span class="product-price">R$ 189,99</span>
                             <button class="buy-btn" onclick="openOrderModal('rosa')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
                         </div>
                     </div>
-
                     <!-- Product 3 - Relicário -->
                     <div class="product-card" data-category="tecnologia">
                         <div class="product-image-container">
@@ -862,12 +655,7 @@
                             <span class="rating-value">(4.7)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price" id="price-relogio">R$ 599,99</span>
-                            <div class="quantity-control">
-                                <button class="quantity-btn" onclick="changeQuantity('relogio', -1)">-</button>
-                                <input type="number" class="quantity-input" id="quantity-relogio" value="1" min="1" max="10">
-                                <button class="quantity-btn" onclick="changeQuantity('relogio', 1)">+</button>
-                            </div>
+                            <span class="product-price">R$ 599,99</span>
                             <button class="buy-btn" onclick="openOrderModal('relogio')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
@@ -877,13 +665,11 @@
             </div>
         </section>
     </main>
-
     <!-- Order Modal -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal()">&times;</button>
             <h2 class="modal-title">Detalhes do Pedido</h2>
-            
             <div class="product-details">
                 <img id="modalImage" src="" alt="Produto" class="modal-image">
                 <div class="details-info">
@@ -896,72 +682,33 @@
                     <div class="price-display" id="modalPrice">R$ 299,99</div>
                 </div>
             </div>
-
             <form id="orderForm">
                 <div class="form-group" id="accessoryGroup">
                     <label>Acessório:</label>
                     <div class="radio-group" id="accessoryOptions"></div>
                 </div>
-
                 <div class="form-group" id="ringSizeGroup" style="display: none;">
                     <label for="ringSize">Tamanho do Anel:</label>
                     <select id="ringSize" class="form-control"></select>
                 </div>
-
                 <div class="form-group" id="sizeGroup">
                     <label for="size">Tamanho:</label>
                     <select id="size" class="form-control"></select>
                 </div>
-
                 <div class="form-group" id="materialGroup">
                     <label>Material:</label>
                     <div class="radio-group" id="materialOptions"></div>
                 </div>
-
                 <div class="form-group" id="colorGroup">
                     <label for="color">Cor:</label>
                     <select id="color" class="form-control"></select>
                 </div>
-
-                <div class="form-group">
-                    <label for="modal-quantity">Quantidade:</label>
-                    <div class="quantity-control" style="width: 120px; margin: 0 auto;">
-                        <button type="button" class="quantity-btn" onclick="changeModalQuantity(-1)">-</button>
-                        <input type="number" class="quantity-input" id="modal-quantity" value="1" min="1" max="10">
-                        <button type="button" class="quantity-btn" onclick="changeModalQuantity(1)">+</button>
-                    </div>
-                </div>
-
-                <button type="button" class="btn btn-primary btn-proceed" onclick="addToCart()">
-                    Adicionar ao Carrinho
+                <button type="button" class="btn btn-primary btn-proceed" onclick="proceedToCheckout()">
+                    Ir para Pagamento
                 </button>
             </form>
         </div>
     </div>
-
-    <!-- Cart Modal -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeCart()">&times;</button>
-            <h2 class="modal-title">Seu Carrinho</h2>
-            
-            <div id="cartItems">
-                <p id="emptyCartMessage">Seu carrinho está vazio.</p>
-                <div id="cartItemsList"></div>
-            </div>
-            
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(138, 43, 226, 0.3);">
-                <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; margin-bottom: 20px;">
-                    <span>Total:</span>
-                    <span id="cartTotal">R$ 0,00</span>
-                </div>
-                <button class="btn btn-primary btn-proceed" onclick="checkout()">
-                    Finalizar Compra
-                </button>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -970,14 +717,12 @@
                     <p>Presentes do futuro para o amor de hoje. Tecnologia, romance e inovação em cada detalhe.</p>
                     <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP - Brasil</p>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Atendimento</h3>
                     <a href="mailto:sac@neolove.com.br"><i class="fas fa-envelope"></i> sac@neolove.com.br</a>
                     <a href="tel:+5511999999999"><i class="fas fa-phone"></i> (11) 99999-9999</a>
                     <a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Empresa</h3>
                     <div class="company-info">
@@ -988,18 +733,15 @@
                     </div>
                 </div>
             </div>
-            
             <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(138, 43, 226, 0.3);">
                 <p style="color: #64748b; font-size: 14px;">© 2024 NeoLove. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-
     <script>
         // Carousel functionality
         function changeSlide(productId, index) {
@@ -1016,7 +758,6 @@
                 else video.pause();
             });
         }
-
         // Auto-rotate carousels (only for urso)
         function autoRotateCarousels() {
             const ursoDots = document.querySelectorAll('#controls-urso .carousel-dot');
@@ -1028,37 +769,8 @@
                 }, 5000);
             }
         }
-
-        // Quantity control functions
-        function changeQuantity(productId, change) {
-            const input = document.getElementById(`quantity-${productId}`);
-            let value = parseInt(input.value) + change;
-            if (value < 1) value = 1;
-            if (value > 10) value = 10;
-            input.value = value;
-            const priceElement = document.getElementById(`price-${productId}`);
-            const basePrice = products[productId].price;
-            const newPrice = basePrice * value;
-            priceElement.textContent = `R$ ${newPrice.toFixed(2).replace('.', ',')}`;
-        }
-
-        function changeModalQuantity(change) {
-            const input = document.getElementById('modal-quantity');
-            let value = parseInt(input.value) + change;
-            if (value < 1) value = 1;
-            if (value > 10) value = 10;
-            input.value = value;
-            if (currentProductId) {
-                const product = products[currentProductId];
-                const newPrice = product.price * value;
-                document.getElementById('modalPrice').textContent = `R$ ${newPrice.toFixed(2).replace('.', ',')}`;
-            }
-        }
-
-        // Cart functionality
-        let cart = [];
+        // Product data
         let currentProductId = null;
-
         const products = {
             urso: {
                 name: "Urso com Colar",
@@ -1113,12 +825,6 @@
                 colors: ["preto", "azul", "dourado", "prata"]
             }
         };
-
-        function updateCartCount() {
-            const count = cart.reduce((total, item) => total + item.quantity, 0);
-            document.querySelector('.cart-count').textContent = count;
-        }
-
         function handleAccessoryChange() {
             const ringSizeGroup = document.getElementById('ringSizeGroup');
             const ringSizeSelect = document.getElementById('ringSize');
@@ -1136,18 +842,14 @@
                 ringSizeGroup.style.display = 'none';
             }
         }
-
         function openOrderModal(productId) {
             currentProductId = productId;
             const product = products[productId];
             if (!product) return;
-            const quantityInput = document.getElementById(`quantity-${productId}`);
-            const quantity = parseInt(quantityInput.value) || 1;
             document.getElementById('modalImage').src = product.image;
             document.getElementById('modalProductName').textContent = product.name;
             document.getElementById('modalDescription').textContent = product.description;
-            document.getElementById('modalPrice').textContent = `R$ ${(product.price * quantity).toFixed(2).replace('.', ',')}`;
-            document.getElementById('modal-quantity').value = quantity;
+            document.getElementById('modalPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
             const specsList = document.getElementById('modalSpecifications');
             specsList.innerHTML = '';
             product.specifications.forEach(spec => {
@@ -1221,118 +923,19 @@
             }
             document.getElementById('orderModal').style.display = 'flex';
         }
-
         function closeModal() {
             document.getElementById('orderModal').style.display = 'none';
             currentProductId = null;
         }
-
-        function addToCart() {
+        function proceedToCheckout() {
             if (!currentProductId) return;
             const product = products[currentProductId];
-            const accessory = document.getElementById('accessoryGroup').style.display !== 'none' ? 
-                document.querySelector('input[name="accessory"]:checked')?.value : null;
-            const ringSize = document.getElementById('ringSizeGroup').style.display !== 'none' ? 
-                document.getElementById('ringSize').value : null;
-            const size = document.getElementById('sizeGroup').style.display !== 'none' ? 
-                document.getElementById('size').value : null;
-            const material = document.getElementById('materialGroup').style.display !== 'none' ? 
-                document.querySelector('input[name="material"]:checked').value : null;
-            const color = document.getElementById('colorGroup').style.display !== 'none' ? 
-                document.getElementById('color').value : null;
-            const quantity = parseInt(document.getElementById('modal-quantity').value) || 1;
-            const cartItem = {
-                id: currentProductId,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                accessory: accessory,
-                ringSize: ringSize,
-                size: size,
-                material: material,
-                color: color,
-                quantity: quantity
-            };
-            cart.push(cartItem);
-            updateCartCount();
-            closeModal();
-            alert('Produto adicionado ao carrinho com sucesso!');
+            window.location.href = product.paymentLink;
         }
-
-        function openCart() {
-            renderCart();
-            document.getElementById('cartModal').style.display = 'flex';
-        }
-
-        function closeCart() {
-            document.getElementById('cartModal').style.display = 'none';
-        }
-
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCartCount();
-            renderCart();
-        }
-
-        function renderCart() {
-            const cartItemsList = document.getElementById('cartItemsList');
-            const emptyCartMessage = document.getElementById('emptyCartMessage');
-            const cartTotal = document.getElementById('cartTotal');
-            if (cart.length === 0) {
-                emptyCartMessage.style.display = 'block';
-                cartItemsList.style.display = 'none';
-                cartTotal.textContent = 'R$ 0,00';
-            } else {
-                emptyCartMessage.style.display = 'none';
-                cartItemsList.style.display = 'block';
-                cartItemsList.innerHTML = '';
-                let total = 0;
-                cart.forEach((item, index) => {
-                    const itemDiv = document.createElement('div');
-                    itemDiv.className = 'cart-item';
-                    itemDiv.style.position = 'relative';
-                    let details = '';
-                    if (item.accessory) details += `Acessório: ${item.accessory.charAt(0).toUpperCase() + item.accessory.slice(1)}<br>`;
-                    if (item.ringSize) details += `Tamanho do Anel: ${item.ringSize}<br>`;
-                    if (item.size) details += `Tamanho: ${item.size.charAt(0).toUpperCase() + item.size.slice(1)}<br>`;
-                    if (item.material) details += `Material: ${item.material.charAt(0).toUpperCase() + item.material.slice(1)}<br>`;
-                    if (item.color) details += `Cor: ${item.color.charAt(0).toUpperCase() + item.color.slice(1)}<br>`;
-                    itemDiv.innerHTML = `
-                        <button class="remove-item" onclick="removeItem(${index})">×</button>
-                        <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
-                        <div style="flex: 1;">
-                            <h4 style="margin-bottom: 5px;">${item.name}</h4>
-                            <div style="color: #a0a0c0; font-size: 14px; margin-bottom: 8px;">
-                                ${details}
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <span style="font-weight: bold; color: #8A2BE2;">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
-                                <span>Quantidade: ${item.quantity}</span>
-                            </div>
-                        </div>
-                    `;
-                    cartItemsList.appendChild(itemDiv);
-                    total += item.price * item.quantity;
-                });
-                cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-            }
-        }
-
-        function checkout() {
-            if (cart.length === 0) {
-                alert('Seu carrinho está vazio!');
-                return;
-            }
-            window.location.href = "https://go.plumify.com.br/zblquyx3e8";
-        }
-
         window.onclick = function(event) {
             const orderModal = document.getElementById('orderModal');
-            const cartModal = document.getElementById('cartModal');
             if (event.target === orderModal) closeModal();
-            if (event.target === cartModal) closeCart();
         };
-
         document.addEventListener('DOMContentLoaded', function() {
             autoRotateCarousels();
             const carousels = ['urso', 'rosa', 'relogio'];
@@ -1344,3 +947,4 @@
     </script>
 </body>
 </html>
+```
