@@ -70,7 +70,7 @@
 
         /* Header Styles - Transparente */
         header {
-            background: transparent; /* Alterado para transparente */
+            background: transparent;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(138, 43, 226, 0.3);
             position: sticky;
@@ -114,15 +114,8 @@
             font-weight: bold;
         }
 
-        nav a {
-            color: #a0a0c0;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #8A2BE2;
+        nav {
+            display: none;
         }
 
         .cart-icon {
@@ -200,77 +193,23 @@
         }
 
         .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: none;
         }
 
-        .btn {
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        /* Products Section */
+        .section {
+            padding: 80px 0;
         }
 
-        .btn-primary {
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
             background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            color: white;
-            border: none;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #8A2BE2;
-            border: 2px solid rgba(138, 43, 226, 0.5);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(138, 43, 226, 0.1);
-            border-color: rgba(138, 43, 226, 0.8);
-        }
-
-        /* Categories */
-        .categories {
-            padding: 60px 0;
-        }
-
-        .category-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .category-btn {
-            padding: 12px 24px;
-            border-radius: 50px;
-            background: rgba(30, 30, 46, 0.5);
-            color: #a0a0c0;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-btn.active, .category-btn:hover {
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            color: white;
-        }
-
-        /* Products Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -300,6 +239,20 @@
             margin-bottom: 20px;
             background: #1e1e2e;
             position: relative;
+        }
+
+        .video-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #1e1e2e;
         }
 
         .carousel {
@@ -425,6 +378,45 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(30, 30, 46, 0.8);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            background: rgba(138, 43, 226, 0.3);
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .quantity-btn:hover {
+            background: rgba(138, 43, 226, 0.5);
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 28px;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
         .buy-btn {
             background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
             color: white;
@@ -441,6 +433,75 @@
 
         .buy-btn:hover {
             transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+            margin-top: 80px;
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0a0c0;
+            text-decoration: none;
+            line-height: 1.6;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #8A2BE2;
+        }
+
+        .company-info {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            font-size: 24px;
         }
 
         /* Modal Styles */
@@ -618,75 +679,6 @@
             margin-top: 24px;
         }
 
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(138, 43, 226, 0.3);
-            margin-top: 80px;
-            padding: 60px 0 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #a0a0c0;
-            text-decoration: none;
-            line-height: 1.6;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #8A2BE2;
-        }
-
-        .company-info {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.8;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        .whatsapp-float i {
-            font-size: 24px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h2 {
@@ -697,22 +689,8 @@
                 font-size: 16px;
             }
             
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
             .header-content {
                 flex-wrap: wrap;
-            }
-            
-            nav {
-                margin: 10px 0;
             }
             
             .product-details {
@@ -762,6 +740,22 @@
                 min-height: 300px;
                 padding: 40px 0 20px;
             }
+            
+            .quantity-control {
+                gap: 4px;
+            }
+            
+            .quantity-btn {
+                width: 24px;
+                height: 24px;
+                font-size: 14px;
+            }
+            
+            .quantity-input {
+                width: 32px;
+                height: 24px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -782,9 +776,7 @@
                 </div>
                 
                 <nav>
-                    <a href="#">Produtos</a>
-                    <a href="#">Experiências</a>
-                    <a href="#">Sobre</a>
+                    <!-- Botões removidos -->
                 </nav>
                 
                 <div class="cart-icon" onclick="openCart()">
@@ -803,43 +795,22 @@
                     <span>Presentes do Futuro</span>
                 </h2>
                 <p>Celebre o amor com tecnologia de ponta e designs imersivos que transcendem o tempo e o espaço</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Explorar Produtos</a>
-                    <a href="#" class="btn btn-secondary">Ver Experiências 3D</a>
-                </div>
+                <!-- Botões removidos -->
             </div>
         </section>
 
-        <section class="categories">
+        <section class="section">
             <div class="container">
-                <div class="category-buttons">
-                    <button class="category-btn active" data-category="todos">Todos</button>
-                    <button class="category-btn" data-category="joias">Joias</button>
-                    <button class="category-btn" data-category="flores">Flores</button>
-                    <button class="category-btn" data-category="tecnologia">Tecnologia</button>
-                </div>
-
+                <h2 class="section-title">Nossos Produtos</h2>
                 <div class="products-grid">
                     <!-- Product 1 - Pingente Coração Quântico -->
                     <div class="product-card" data-category="joias">
                         <div class="product-image-container">
-                            <div class="carousel">
-                                <div class="carousel-inner" id="carousel-pingente">
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Pingente+3D" alt="Pingente Coração Quântico">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/9370DB/FFFFFF?text=Pingente+Lateral" alt="Pingente Coração Quântico Lateral">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/BA55D3/FFFFFF?text=Pingente+Detalhe" alt="Pingente Coração Quântico Detalhe">
-                                    </div>
-                                </div>
-                                <div class="carousel-controls" id="controls-pingente">
-                                    <div class="carousel-dot active" onclick="changeSlide('pingente', 0)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('pingente', 1)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('pingente', 2)"></div>
-                                </div>
+                            <div class="video-container">
+                                <video class="product-video" muted loop autoplay playsinline>
+                                    <source src="video1.mp4" type="video/mp4">
+                                    <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Pingente+3D" alt="Pingente Coração Quântico">
+                                </video>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
@@ -859,6 +830,11 @@
                         </div>
                         <div class="product-footer">
                             <span class="product-price">R$ 299,99</span>
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="changeQuantity('pingente', -1)">-</button>
+                                <input type="number" class="quantity-input" id="quantity-pingente" value="1" min="1" max="10">
+                                <button class="quantity-btn" onclick="changeQuantity('pingente', 1)">+</button>
+                            </div>
                             <button class="buy-btn" onclick="openOrderModal('pingente')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
@@ -904,6 +880,11 @@
                         </div>
                         <div class="product-footer">
                             <span class="product-price">R$ 189,99</span>
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="changeQuantity('rosa', -1)">-</button>
+                                <input type="number" class="quantity-input" id="quantity-rosa" value="1" min="1" max="10">
+                                <button class="quantity-btn" onclick="changeQuantity('rosa', 1)">+</button>
+                            </div>
                             <button class="buy-btn" onclick="openOrderModal('rosa')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
@@ -949,6 +930,11 @@
                         </div>
                         <div class="product-footer">
                             <span class="product-price">R$ 599,99</span>
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="changeQuantity('relogio', -1)">-</button>
+                                <input type="number" class="quantity-input" id="quantity-relogio" value="1" min="1" max="10">
+                                <button class="quantity-btn" onclick="changeQuantity('relogio', 1)">+</button>
+                            </div>
                             <button class="buy-btn" onclick="openOrderModal('relogio')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
@@ -992,6 +978,15 @@
                 <div class="form-group" id="colorGroup">
                     <label for="color">Cor:</label>
                     <select id="color" class="form-control"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-quantity">Quantidade:</label>
+                    <div class="quantity-control" style="width: 120px; margin: 0 auto;">
+                        <button type="button" class="quantity-btn" onclick="changeModalQuantity(-1)">-</button>
+                        <input type="number" class="quantity-input" id="modal-quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="changeModalQuantity(1)">+</button>
+                    </div>
                 </div>
 
                 <button type="button" class="btn btn-primary btn-proceed" onclick="addToCart()">
@@ -1063,6 +1058,23 @@
     </a>
 
     <script>
+        // Quantity control functions
+        function changeQuantity(productId, change) {
+            const input = document.getElementById(`quantity-${productId}`);
+            let value = parseInt(input.value) + change;
+            if (value < 1) value = 1;
+            if (value > 10) value = 10;
+            input.value = value;
+        }
+
+        function changeModalQuantity(change) {
+            const input = document.getElementById('modal-quantity');
+            let value = parseInt(input.value) + change;
+            if (value < 1) value = 1;
+            if (value > 10) value = 10;
+            input.value = value;
+        }
+
         // Carousel functionality
         function changeSlide(productId, index) {
             const carouselInner = document.getElementById(`carousel-${productId}`);
@@ -1083,7 +1095,7 @@
 
         // Auto-rotate carousels
         function autoRotateCarousels() {
-            const products = ['pingente', 'rosa', 'relogio'];
+            const products = ['rosa', 'relogio'];
             products.forEach(productId => {
                 let currentIndex = 0;
                 setInterval(() => {
@@ -1165,11 +1177,16 @@
             const product = products[productId];
             if (!product) return;
 
+            // Get quantity from product card
+            const quantityInput = document.getElementById(`quantity-${productId}`);
+            const quantity = parseInt(quantityInput.value) || 1;
+
             // Update modal content
             document.getElementById('modalImage').src = product.image;
             document.getElementById('modalProductName').textContent = product.name;
             document.getElementById('modalDescription').textContent = product.description;
             document.getElementById('modalPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+            document.getElementById('modal-quantity').value = quantity;
             
             // Update specifications
             const specsList = document.getElementById('modalSpecifications');
@@ -1251,6 +1268,7 @@
                 document.querySelector('input[name="material"]:checked').value : null;
             const color = document.getElementById('colorGroup').style.display !== 'none' ? 
                 document.getElementById('color').value : null;
+            const quantity = parseInt(document.getElementById('modal-quantity').value) || 1;
             
             // Create cart item
             const cartItem = {
@@ -1261,7 +1279,7 @@
                 size: size,
                 material: material,
                 color: color,
-                quantity: 1
+                quantity: quantity
             };
             
             // Add to cart
@@ -1357,28 +1375,17 @@
             }
         };
 
-        // Category filtering functionality
-        document.querySelectorAll('.category-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                const category = this.getAttribute('data-category');
-                document.querySelectorAll('.product-card').forEach(card => {
-                    if (category === 'todos' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Initialize carousels
+        // Initialize carousels and video
         document.addEventListener('DOMContentLoaded', function() {
             autoRotateCarousels();
+            
+            // Ensure video plays
+            const video = document.querySelector('.product-video');
+            if (video) {
+                video.addEventListener('loadeddata', function() {
+                    video.play().catch(e => console.log('Autoplay prevented:', e));
+                });
+            }
         });
     </script>
 </body>
