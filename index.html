@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -860,10 +861,14 @@
                                             <img src="https://placehold.co/400x400/FF69B4/FFFFFF?text=Rosa+2" alt="Rosa Nebulosa 2">
                                         </video>
                                     </div>
+                                    <div class="carousel-item">
+                                        <img src="fundo.png" alt="Rosa Nebulosa 3" class="carousel-media">
+                                    </div>
                                 </div>
                                 <div class="carousel-controls" id="controls-rosa">
                                     <div class="carousel-dot active" onclick="changeSlide('rosa', 0)"></div>
                                     <div class="carousel-dot" onclick="changeSlide('rosa', 1)"></div>
+                                    <div class="carousel-dot" onclick="changeSlide('rosa', 2)"></div>
                                 </div>
                             </div>
                             <div class="view-3d-btn">
@@ -907,7 +912,7 @@
                                         </video>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/40E0D0/000000?text=Relógio+2" alt="Relógio Estelar 2" class="carousel-media">
+                                        <img src="fundo.png" alt="Relógio Estelar 2" class="carousel-media">
                                     </div>
                                 </div>
                                 <div class="carousel-controls" id="controls-relogio">
@@ -971,6 +976,11 @@
                 <div class="form-group" id="accessoryGroup">
                     <label>Acessório:</label>
                     <div class="radio-group" id="accessoryOptions"></div>
+                </div>
+
+                <div class="form-group" id="ringSizeGroup" style="display: none;">
+                    <label for="ringSize">Tamanho do Anel:</label>
+                    <select id="ringSize" class="form-control"></select>
                 </div>
 
                 <div class="form-group" id="sizeGroup">
@@ -1147,7 +1157,7 @@
                 name: "Urso com Colar",
                 description: "Urso de pelúcia com rosa, colar e anel",
                 price: 299.99,
-                image: "https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+com+Colar",
+                image: "urso3.png",
                 paymentLink: "https://go.plumify.com.br/zblquyx3e8",
                 specifications: [
                     "Altura: 30 cm",
@@ -1203,6 +1213,27 @@
             document.querySelector('.cart-count').textContent = count;
         }
 
+        // Handle accessory selection for urso
+        function handleAccessoryChange() {
+            const ringSizeGroup = document.getElementById('ringSizeGroup');
+            const ringSizeSelect = document.getElementById('ringSize');
+            
+            const selectedAccessory = document.querySelector('input[name="accessory"]:checked')?.value;
+            
+            if (selectedAccessory === 'anel') {
+                ringSizeGroup.style.display = 'block';
+                ringSizeSelect.innerHTML = '';
+                for (let i = 13; i <= 23; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = `Tamanho ${i}`;
+                    ringSizeSelect.appendChild(option);
+                }
+            } else {
+                ringSizeGroup.style.display = 'none';
+            }
+        }
+
         // Modal functionality
         function openOrderModal(productId) {
             currentProductId = productId;
@@ -1239,13 +1270,16 @@
                     const div = document.createElement('div');
                     div.className = 'radio-option';
                     div.innerHTML = `
-                        <input type="radio" id="${accessory}" name="accessory" value="${accessory}" ${accessory === 'colar' ? 'checked' : ''}>
+                        <input type="radio" id="${accessory}" name="accessory" value="${accessory}" ${accessory === 'colar' ? 'checked' : ''} onchange="handleAccessoryChange()">
                         <label for="${accessory}">${accessory.charAt(0).toUpperCase() + accessory.slice(1)}</label>
                     `;
                     accessoryOptions.appendChild(div);
                 });
+                // Initialize ring size visibility
+                handleAccessoryChange();
             } else {
                 accessoryGroup.style.display = 'none';
+                document.getElementById('ringSizeGroup').style.display = 'none';
             }
             
             // Update form fields based on product
@@ -1315,6 +1349,8 @@
             const product = products[currentProductId];
             const accessory = document.getElementById('accessoryGroup').style.display !== 'none' ? 
                 document.querySelector('input[name="accessory"]:checked')?.value : null;
+            const ringSize = document.getElementById('ringSizeGroup').style.display !== 'none' ? 
+                document.getElementById('ringSize').value : null;
             const size = document.getElementById('sizeGroup').style.display !== 'none' ? 
                 document.getElementById('size').value : null;
             const material = document.getElementById('materialGroup').style.display !== 'none' ? 
@@ -1330,6 +1366,7 @@
                 price: product.price,
                 image: product.image,
                 accessory: accessory,
+                ringSize: ringSize,
                 size: size,
                 material: material,
                 color: color,
@@ -1379,6 +1416,7 @@
                     
                     let details = '';
                     if (item.accessory) details += `Acessório: ${item.accessory.charAt(0).toUpperCase() + item.accessory.slice(1)}<br>`;
+                    if (item.ringSize) details += `Tamanho do Anel: ${item.ringSize}<br>`;
                     if (item.size) details += `Tamanho: ${item.size.charAt(0).toUpperCase() + item.size.slice(1)}<br>`;
                     if (item.material) details += `Material: ${item.material.charAt(0).toUpperCase() + item.material.slice(1)}<br>`;
                     if (item.color) details += `Cor: ${item.color.charAt(0).toUpperCase() + item.color.slice(1)}<br>`;
@@ -1446,3 +1484,4 @@
     </script>
 </body>
 </html>
+```
