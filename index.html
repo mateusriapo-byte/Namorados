@@ -803,21 +803,21 @@
             <div class="container">
                 <h2 class="section-title">Nossos Produtos</h2>
                 <div class="products-grid">
-                    <!-- Product 1 - Pingente Coração Quântico -->
+                    <!-- Product 1 - Urso com Colar -->
                     <div class="product-card" data-category="joias">
                         <div class="product-image-container">
                             <div class="video-container">
                                 <video class="product-video" muted loop autoplay playsinline>
                                     <source src="video1.mp4" type="video/mp4">
-                                    <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Pingente+3D" alt="Pingente Coração Quântico">
+                                    <img src="https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+com+Colar" alt="Urso com Colar">
                                 </video>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
                             </div>
                         </div>
-                        <h3 class="product-name">Pingente Coração Quântico</h3>
-                        <p class="product-description">Pingente holográfico com sensor de emoções em tempo real e tecnologia de memória de forma.</p>
+                        <h3 class="product-name">Urso com Colar</h3>
+                        <p class="product-description">Urso de pelúcia inteligente com colar holográfico que exibe mensagens personalizadas e responde ao toque.</p>
                         <div class="rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -829,13 +829,13 @@
                             <span class="rating-value">(4.8)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">R$ 299,99</span>
+                            <span class="product-price" id="price-urso">R$ 299,99</span>
                             <div class="quantity-control">
-                                <button class="quantity-btn" onclick="changeQuantity('pingente', -1)">-</button>
-                                <input type="number" class="quantity-input" id="quantity-pingente" value="1" min="1" max="10">
-                                <button class="quantity-btn" onclick="changeQuantity('pingente', 1)">+</button>
+                                <button class="quantity-btn" onclick="changeQuantity('urso', -1)">-</button>
+                                <input type="number" class="quantity-input" id="quantity-urso" value="1" min="1" max="10">
+                                <button class="quantity-btn" onclick="changeQuantity('urso', 1)">+</button>
                             </div>
-                            <button class="buy-btn" onclick="openOrderModal('pingente')">
+                            <button class="buy-btn" onclick="openOrderModal('urso')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
                         </div>
@@ -844,23 +844,11 @@
                     <!-- Product 2 - Rosa Nebulosa -->
                     <div class="product-card" data-category="flores">
                         <div class="product-image-container">
-                            <div class="carousel">
-                                <div class="carousel-inner" id="carousel-rosa">
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/FF00C8/FFFFFF?text=Rosa+Nebulosa" alt="Rosa Nebulosa">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/FF69B4/FFFFFF?text=Rosa+Iluminada" alt="Rosa Nebulosa Iluminada">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/DA70D6/FFFFFF?text=Rosa+Base" alt="Rosa Nebulosa Base">
-                                    </div>
-                                </div>
-                                <div class="carousel-controls" id="controls-rosa">
-                                    <div class="carousel-dot active" onclick="changeSlide('rosa', 0)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('rosa', 1)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('rosa', 2)"></div>
-                                </div>
+                            <div class="video-container">
+                                <video class="product-video" muted loop autoplay playsinline>
+                                    <source src="video2.mp4" type="video/mp4">
+                                    <img src="https://placehold.co/400x400/FF00C8/FFFFFF?text=Rosa+Nebulosa" alt="Rosa Nebulosa">
+                                </video>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
@@ -879,7 +867,7 @@
                             <span class="rating-value">(4.9)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">R$ 189,99</span>
+                            <span class="product-price" id="price-rosa">R$ 189,99</span>
                             <div class="quantity-control">
                                 <button class="quantity-btn" onclick="changeQuantity('rosa', -1)">-</button>
                                 <input type="number" class="quantity-input" id="quantity-rosa" value="1" min="1" max="10">
@@ -894,23 +882,11 @@
                     <!-- Product 3 - Relógio Estelar -->
                     <div class="product-card" data-category="tecnologia">
                         <div class="product-image-container">
-                            <div class="carousel">
-                                <div class="carousel-inner" id="carousel-relogio">
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/00F5FF/000000?text=Relógio+3D" alt="Relógio Estelar">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/40E0D0/000000?text=Relógio+Projeção" alt="Relógio Estelar Projeção">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://placehold.co/400x400/00CED1/000000?text=Relógio+Pulseira" alt="Relógio Estelar Pulseira">
-                                    </div>
-                                </div>
-                                <div class="carousel-controls" id="controls-relogio">
-                                    <div class="carousel-dot active" onclick="changeSlide('relogio', 0)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('relogio', 1)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('relogio', 2)"></div>
-                                </div>
+                            <div class="video-container">
+                                <video class="product-video" muted loop autoplay playsinline>
+                                    <source src="video5.mp4" type="video/mp4">
+                                    <img src="https://placehold.co/400x400/00F5FF/000000?text=Relógio+3D" alt="Relógio Estelar">
+                                </video>
                             </div>
                             <div class="view-3d-btn">
                                 <i class="fas fa-search-plus"></i>
@@ -929,7 +905,7 @@
                             <span class="rating-value">(4.7)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">R$ 599,99</span>
+                            <span class="product-price" id="price-relogio">R$ 599,99</span>
                             <div class="quantity-control">
                                 <button class="quantity-btn" onclick="changeQuantity('relogio', -1)">-</button>
                                 <input type="number" class="quantity-input" id="quantity-relogio" value="1" min="1" max="10">
@@ -1058,13 +1034,19 @@
     </a>
 
     <script>
-        // Quantity control functions
+        // Quantity control functions with price update for all products
         function changeQuantity(productId, change) {
             const input = document.getElementById(`quantity-${productId}`);
             let value = parseInt(input.value) + change;
             if (value < 1) value = 1;
             if (value > 10) value = 10;
             input.value = value;
+            
+            // Update price display for all products
+            const priceElement = document.getElementById(`price-${productId}`);
+            const basePrice = products[productId].price;
+            const newPrice = basePrice * value;
+            priceElement.textContent = `R$ ${newPrice.toFixed(2).replace('.', ',')}`;
         }
 
         function changeModalQuantity(change) {
@@ -1075,58 +1057,27 @@
             input.value = value;
         }
 
-        // Carousel functionality
-        function changeSlide(productId, index) {
-            const carouselInner = document.getElementById(`carousel-${productId}`);
-            const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
-            
-            // Update carousel position
-            carouselInner.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update active dot
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        // Auto-rotate carousels
-        function autoRotateCarousels() {
-            const products = ['rosa', 'relogio'];
-            products.forEach(productId => {
-                let currentIndex = 0;
-                setInterval(() => {
-                    const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
-                    currentIndex = (currentIndex + 1) % dots.length;
-                    changeSlide(productId, currentIndex);
-                }, 5000);
-            });
-        }
-
         // Cart functionality
         let cart = [];
         let currentProductId = null;
 
         // Product data with detailed specifications
         const products = {
-            pingente: {
-                name: "Pingente Coração Quântico",
-                description: "Pingente holográfico avançado com sensor biométrico que detecta emoções em tempo real. Utiliza tecnologia de memória de forma para ajuste perfeito ao pescoço.",
+            urso: {
+                name: "Urso com Colar",
+                description: "Urso de pelúcia inteligente com colar holográfico que exibe mensagens personalizadas e responde ao toque.",
                 price: 299.99,
-                image: "https://placehold.co/400x400/8A2BE2/FFFFFF?text=Pingente+3D",
+                image: "https://placehold.co/400x400/8A2BE2/FFFFFF?text=Urso+com+Colar",
                 paymentLink: "https://go.plumify.com.br/zblquyx3e8",
                 specifications: [
-                    "Diâmetro: 2,5 cm",
-                    "Material: Liga de titânio com revestimento nano",
-                    "Bateria: 30 dias de autonomia",
-                    "Resistência à água: IP68",
-                    "Conectividade: Bluetooth 5.2"
+                    "Altura: 30 cm",
+                    "Material: Pelúcia premium com fibra óptica",
+                    "Bateria: 48 horas de autonomia",
+                    "Conectividade: Bluetooth 5.2 e Wi-Fi",
+                    "Recursos: Sensor de toque, projeção holográfica"
                 ],
-                sizes: [],
-                materials: ["ouro", "prata"],
+                sizes: ["pequeno", "médio", "grande"],
+                materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
                 colors: ["roxo", "rosa", "azul"]
             },
             rosa: {
@@ -1185,7 +1136,7 @@
             document.getElementById('modalImage').src = product.image;
             document.getElementById('modalProductName').textContent = product.name;
             document.getElementById('modalDescription').textContent = product.description;
-            document.getElementById('modalPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+            document.getElementById('modalPrice').textContent = `R$ ${(product.price * quantity).toFixed(2).replace('.', ',')}`;
             document.getElementById('modal-quantity').value = quantity;
             
             // Update specifications
@@ -1227,7 +1178,7 @@
                     const div = document.createElement('div');
                     div.className = 'radio-option';
                     div.innerHTML = `
-                        <input type="radio" id="${material}" name="material" value="${material}" ${material === 'ouro' ? 'checked' : ''}>
+                        <input type="radio" id="${material}" name="material" value="${material}" checked>
                         <label for="${material}">${material.charAt(0).toUpperCase() + material.slice(1)}</label>
                     `;
                     materialOptions.appendChild(div);
@@ -1337,7 +1288,7 @@
                                     ${details}
                                 </div>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <span style="font-weight: bold; color: #8A2BE2;">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                                    <span style="font-weight: bold; color: #8A2BE2;">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
                                     <span>Quantidade: ${item.quantity}</span>
                                 </div>
                             </div>
@@ -1375,17 +1326,15 @@
             }
         };
 
-        // Initialize carousels and video
+        // Initialize videos
         document.addEventListener('DOMContentLoaded', function() {
-            autoRotateCarousels();
-            
-            // Ensure video plays
-            const video = document.querySelector('.product-video');
-            if (video) {
+            // Ensure videos play
+            const videos = document.querySelectorAll('.product-video');
+            videos.forEach(video => {
                 video.addEventListener('loadeddata', function() {
                     video.play().catch(e => console.log('Autoplay prevented:', e));
                 });
-            }
+            });
         });
     </script>
 </body>
