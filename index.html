@@ -74,18 +74,26 @@
             font-size: 24px;
             font-weight: bold;
         }
+        .login-btn, .user-email {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+        }
         .login-btn {
             background: rgba(138, 43, 226, 0.3);
             color: white;
             border: 1px solid rgba(138, 43, 226, 0.6);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .login-btn:hover {
             background: rgba(138, 43, 226, 0.5);
+        }
+        .user-email {
+            background: rgba(0, 0, 0, 0.4);
+            color: #8A2BE2;
+            border: 1px solid rgba(138, 43, 226, 0.4);
         }
 
         /* Login Modal */
@@ -312,7 +320,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .buy-btn, .attach-btn {
+        .buy-btn, .whatsapp-btn {
             padding: 10px 16px;
             border-radius: 8px;
             font-weight: 600;
@@ -331,15 +339,12 @@
         .buy-btn:hover {
             transform: scale(1.05);
         }
-        .attach-btn {
-            background: rgba(138, 43, 226, 0.2);
-            color: #8A2BE2;
+        .whatsapp-btn {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
         }
-        .attach-btn:hover {
-            background: rgba(138, 43, 226, 0.3);
-        }
-        .file-input {
-            display: none;
+        .whatsapp-btn:hover {
+            background: rgba(37, 211, 102, 0.3);
         }
         .feedback-card {
             background: rgba(30, 30, 46, 0.4);
@@ -451,28 +456,6 @@
         </div>
     </div>
 
-    <!-- Photo Submission Modal -->
-    <div id="photoModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closePhotoModal()">&times;</button>
-            <h2 class="modal-title">Enviar Foto para Personalização</h2>
-            <form id="photoForm">
-                <div class="form-group">
-                    <label for="clientName">Seu Nome</label>
-                    <input type="text" id="clientName" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="clientEmail">Seu E-mail</label>
-                    <input type="email" id="clientEmail" class="form-control" required>
-                </div>
-                <p style="color: #a0a0c0; font-size: 14px; margin-bottom: 16px;">
-                    Após enviar, você será redirecionado ao WhatsApp para enviar sua foto manualmente.
-                </p>
-                <button type="button" class="btn-submit" onclick="sendToWhatsApp()">Enviar para WhatsApp</button>
-            </form>
-        </div>
-    </div>
-
     <header>
         <div class="logo">
             <div class="logo-icon">
@@ -480,9 +463,11 @@
             </div>
             <div class="logo-text">NeoLove</div>
         </div>
-        <button class="login-btn" onclick="openLoginModal()">
-            <i class="fas fa-user"></i> Login
-        </button>
+        <div id="authContainer">
+            <button class="login-btn" onclick="openLoginModal()">
+                <i class="fas fa-user"></i> Login
+            </button>
+        </div>
     </header>
 
     <main>
@@ -537,9 +522,9 @@
                         </div>
                         <div class="product-footer">
                             <span class="product-price">R$ 89,99</span>
-                            <button class="buy-btn" onclick="openOrderModal('urso')">
+                            <a href="https://global.plumify.com.br/mwlh5wy3jw" class="buy-btn">
                                 <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
+                            </a>
                         </div>
                         <div class="feedback-card">
                             <p class="feedback-text">"Comprei para minha namorada e ela chorou! O urso é lindo, macio e a projeção holográfica é de outro mundo. Vale cada centavo!"</p>
@@ -581,9 +566,9 @@
                         </div>
                         <div class="product-footer">
                             <span class="product-price">R$ 59,90</span>
-                            <button class="buy-btn" onclick="openOrderModal('rosa')">
+                            <a href="https://global.plumify.com.br/ruf5b8fg7w" class="buy-btn">
                                 <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
+                            </a>
                         </div>
                         <div class="feedback-card">
                             <p class="feedback-text">"Entreguei no aniversário dela e ela ficou sem palavras! A rosa brilha suavemente e o anel é delicado. Um presente perfeito!"</p>
@@ -626,12 +611,13 @@
                         <div class="product-footer">
                             <span class="product-price">R$ 99,99</span>
                             <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
-                                <button class="attach-btn" onclick="openPhotoModal()">
-                                    <i class="fas fa-paperclip"></i> Anexar Foto
-                                </button>
-                                <button class="buy-btn" onclick="openOrderModal('relogio')">
+                                <a href="https://wa.me/5514998329806?text=Olá!%20Gostaria%20de%20enviar%20uma%20foto%20para%20personalizar%20meu%20Relicário.%20Por%20favor,%20me%20orientem%20como%20proceder." 
+                                   class="whatsapp-btn" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Enviar Foto por WhatsApp
+                                </a>
+                                <a href="https://go.plumify.com.br/l4k9fhsrjn" class="buy-btn">
                                     <i class="fas fa-shopping-cart"></i> Comprar
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="feedback-card">
@@ -644,117 +630,9 @@
         </section>
     </main>
 
-    <!-- Order Modal (simplified, kept for compatibility) -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeOrderModal()">&times;</button>
-            <h2 class="modal-title">Detalhes do Pedido</h2>
-            <p style="color: #a0a0c0; text-align: center;">Selecione as opções desejadas.</p>
-            <button class="btn-submit" style="margin-top: 20px;" onclick="proceedToCheckout()">Ir para Pagamento</button>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>NeoLove</h3>
-                    <p>Presentes do futuro para o amor de hoje. Tecnologia, romance e inovação em cada detalhe.</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 – Bauru, SP</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Atendimento</h3>
-                    <a href="mailto:sac@neolove.com.br"><i class="fas fa-envelope"></i> sac@neolove.com.br</a>
-                    <a href="tel:+5514998329806"><i class="fas fa-phone"></i> (14) 99832-9806</a>
-                    <a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Empresa</h3>
-                    <div class="company-info">
-                        <p><strong>Razão Social:</strong> NeoLove Tecnologia e Presentes Ltda</p>
-                        <p><strong>CNPJ:</strong> 45.678.901/0001-23</p>
-                        <p><strong>Endereço:</strong> Rua das Flores, 123 – Bauru, SP</p>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(138, 43, 226, 0.3);">
-                <p style="color: #64748b; font-size: 14px;">© 2024 NeoLove. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5514998329806" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script>
-        // --- Login Modal ---
-        function openLoginModal() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-        function closeLoginModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            alert(`Login simulado com sucesso!\nE-mail: ${email}`);
-            closeLoginModal();
-        }
-
-        // --- Photo Modal ---
-        function openPhotoModal() {
-            document.getElementById('photoModal').style.display = 'flex';
-        }
-        function closePhotoModal() {
-            document.getElementById('photoModal').style.display = 'none';
-        }
-        function sendToWhatsApp() {
-            const name = document.getElementById('clientName').value;
-            const email = document.getElementById('clientEmail').value;
-            if (!name || !email) {
-                alert('Por favor, preencha nome e e-mail.');
-                return;
-            }
-
-            const message = `Olá! Aqui está minha foto para personalização do Relicário:%0A%0A*Nome:* ${name}%0A*E-mail:* ${email}%0A%0APor favor, confirmem o recebimento e instruções para envio da imagem.`;
-            const whatsappURL = `https://wa.me/5514998329806?text=${message}`;
-            window.open(whatsappURL, '_blank');
-            closePhotoModal();
-        }
-
-        // --- Order Modal (simplified) ---
-        function openOrderModal(productId) {
-            // For demo, just redirect
-            const links = {
-                urso: "https://global.plumify.com.br/mwlh5wy3jw",
-                rosa: "https://global.plumify.com.br/ruf5b8fg7w",
-                relogio: "https://go.plumify.com.br/l4k9fhsrjn"
-            };
-            window.location.href = links[productId];
-        }
-        function closeOrderModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-        function proceedToCheckout() {
-            alert('Redirecionando para pagamento...');
-            closeOrderModal();
-        }
-
-        // Close modals on outside click
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        };
-
-        // Carousel (simplified)
-        function changeSlide(productId, index) {
-            const carouselInner = document.getElementById(`carousel-${productId}`);
-            if (carouselInner) {
-                carouselInner.style.transform = `translateX(-${index * 100}%)`;
-            }
-        }
-    </script>
-</body>
-</html>
+                    <p>Presentes do 
