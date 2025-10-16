@@ -740,57 +740,57 @@
 
         let currentProductId = null;
         const products = {
-            urso: {
-                name: "Urso com Colar",
-                description: "Urso de pelúcia com rosa, colar e anel",
-                price: 299.99,
-                image: "urso3.jpg",
-                paymentLink: "https://global.plumify.com.br/mwlh5wy3jw",
-                specifications: [
-                    "Altura: 30 cm",
-                    "Material: Pelúcia premium com fibra óptica",
-                    "Bateria: 48 horas de autonomia",
-                    "Conectividade: Bluetooth 5.2 e Wi-Fi",
-                    "Recursos: Sensor de toque, projeção holográfica"
-                ],
-                sizes: ["pequeno", "médio", "grande"],
-                materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
-                colors: ["roxo", "rosa", "azul"],
-                accessories: ["colar", "anel"]
-            },
-            rosa: {
-                name: "Rosa com Anel e Colar",
-                description: "Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno",
-                price: 189.99,
-                image: "rosa.mp4",
-                paymentLink: "https://global.plumify.com.br/ruf5b8fg7w",
-                specifications: [
-                    "Altura total: 25 cm",
-                    "Diâmetro da esfera: 15 cm",
-                    "Base: Alumínio anodizado",
-                    "Iluminação: LED RGB com 16 milhões de cores",
-                    "Alimentação: USB-C (incluso)"
-                ],
-                sizes: ["pequena", "média", "grande"],
-                materials: [],
-                colors: ["vermelha", "rosa", "branca", "azul"]
-            },
-            relogio: {
-                name: "Relicário",
-                description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
-                price: 599.99,
-                image: "colar.mp4",
-                paymentLink: "https://go.plumify.com.br/l4k9fhsrjn",
-                specifications: [
-                    "Caixa: 42mm de diâmetro",
-                    "Cor em dourado ou prata",
-                    "Joia fiel"
-                ],
-                sizes: ["pequeno", "médio", "grande"],
-                materials: ["ouro", "prata", "titânio"],
-                colors: ["preto", "azul", "dourado", "prata"]
-            }
-        };
+    urso: {
+        name: "Urso com Colar",
+        description: "Urso de pelúcia com rosa, colar e anel",
+        price: 299.99,
+        image: "urso3.jpg",
+        paymentLink: "https://global.plumify.com.br/mwlh5wy3jw",
+        specifications: [
+            "Altura: 30 cm",
+            "Material: Pelúcia premium com fibra óptica",
+            "Bateria: 48 horas de autonomia",
+            "Conectividade: Bluetooth 5.2 e Wi-Fi",
+            "Recursos: Sensor de toque, projeção holográfica"
+        ],
+        sizes: ["pequeno", "médio", "grande"],
+        materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
+        colors: ["roxo", "rosa", "azul"],
+        accessories: ["colar", "anel"]
+    },
+    rosa: {
+        name: "Rosa com Anel e Colar",
+        description: "Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno",
+        price: 189.99,
+        image: "anel.png",  // ✅ Alterado para anel.png
+        paymentLink: "https://global.plumify.com.br/ruf5b8fg7w",
+        specifications: [
+            "Altura total: 25 cm",
+            "Diâmetro da esfera: 15 cm",
+            "Base: Alumínio anodizado",
+            "Iluminação: LED RGB com 16 milhões de cores",
+            "Alimentação: USB-C (incluso)"
+        ],
+        sizes: ["pequena", "média", "grande"],
+        materials: [],
+        colors: ["vermelha", "rosa", "branca", "azul"]
+    },
+    relogio: {
+        name: "Relicário",
+        description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
+        price: 599.99,
+        image: "fundo.png",  // ✅ Alterado para fundo.png
+        paymentLink: "https://go.plumify.com.br/l4k9fhsrjn",
+        specifications: [
+            "Caixa: 42mm de diâmetro",
+            "Cor em dourado ou prata",
+            "Joia fiel"
+        ],
+        sizes: ["pequeno", "médio", "grande"],
+        materials: ["ouro", "prata", "titânio"],
+        colors: ["preto", "azul", "dourado", "prata"]
+    }
+};
 
         function handleAccessoryChange() {
             const ringSizeGroup = document.getElementById('ringSizeGroup');
