@@ -226,6 +226,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 12px;
         }
         .product-price {
             font-size: 24px;
@@ -234,11 +235,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .buy-btn {
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        .buy-btn, .attach-btn {
+            padding: 10px 16px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
@@ -246,10 +244,50 @@
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+        .buy-btn {
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
+            color: white;
         }
         .buy-btn:hover {
             transform: scale(1.05);
         }
+        .attach-btn {
+            background: rgba(138, 43, 226, 0.2);
+            color: #8A2BE2;
+        }
+        .attach-btn:hover {
+            background: rgba(138, 43, 226, 0.3);
+        }
+        .file-input {
+            display: none;
+        }
+
+        /* Feedbacks */
+        .feedbacks-section {
+            padding: 60px 0;
+        }
+        .feedback-card {
+            background: rgba(30, 30, 46, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 3px solid #8A2BE2;
+        }
+        .feedback-text {
+            font-style: italic;
+            color: #e0e0ff;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .feedback-author {
+            color: #8A2BE2;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
         footer {
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
@@ -468,6 +506,11 @@
             .whatsapp-float { bottom: 20px; right: 20px; }
             .modal-content { padding: 20px; }
             .hero { min-height: 400px; padding: 60px 0 40px; }
+            .product-footer {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
         }
         @media (max-width: 480px) {
             .modal-image { width: 150px; height: 150px; }
@@ -540,10 +583,14 @@
                             <span class="rating-value">(4.8)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">R$ 299,99</span>
+                            <span class="product-price">R$ 89,99</span>
                             <button class="buy-btn" onclick="openOrderModal('urso')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
+                        </div>
+                        <div class="feedback-card">
+                            <p class="feedback-text">"Comprei para minha namorada e ela chorou! O urso é lindo, macio e a projeção holográfica é de outro mundo. Vale cada centavo!"</p>
+                            <p class="feedback-author">— Mariana S., São Paulo</p>
                         </div>
                     </div>
 
@@ -580,10 +627,14 @@
                             <span class="rating-value">(4.9)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">R$ 189,99</span>
+                            <span class="product-price">R$ 59,90</span>
                             <button class="buy-btn" onclick="openOrderModal('rosa')">
                                 <i class="fas fa-shopping-cart"></i> Comprar
                             </button>
+                        </div>
+                        <div class="feedback-card">
+                            <p class="feedback-text">"Entreguei no aniversário dela e ela ficou sem palavras! A rosa brilha suavemente e o anel é delicado. Um presente perfeito!"</p>
+                            <p class="feedback-author">— Lucas R., Bauru</p>
                         </div>
                     </div>
 
@@ -620,10 +671,20 @@
                             <span class="rating-value">(4.7)</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">R$ 599,99</span>
-                            <button class="buy-btn" onclick="openOrderModal('relogio')">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
+                            <span class="product-price">R$ 99,99</span>
+                            <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+                                <button class="attach-btn" onclick="document.getElementById('fileInput').click()">
+                                    <i class="fas fa-paperclip"></i> Anexar Foto
+                                </button>
+                                <button class="buy-btn" onclick="openOrderModal('relogio')">
+                                    <i class="fas fa-shopping-cart"></i> Comprar
+                                </button>
+                                <input type="file" id="fileInput" class="file-input" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="feedback-card">
+                            <p class="feedback-text">"O relicário é uma obra de arte! A projeção mostra uma mensagem personalizada. Minha esposa usa todos os dias. Tecnologia e romance em perfeita harmonia."</p>
+                            <p class="feedback-author">— Rafael M., Marília</p>
                         </div>
                     </div>
                 </div>
@@ -645,7 +706,7 @@
                         <h4>Especificações Técnicas:</h4>
                         <ul id="modalSpecifications"></ul>
                     </div>
-                    <div class="price-display" id="modalPrice">R$ 299,99</div>
+                    <div class="price-display" id="modalPrice">R$ 89,99</div>
                 </div>
             </div>
             <form id="orderForm">
@@ -682,21 +743,20 @@
                 <div class="footer-section">
                     <h3>NeoLove</h3>
                     <p>Presentes do futuro para o amor de hoje. Tecnologia, romance e inovação em cada detalhe.</p>
-                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP - Brasil</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 – Bauru, SP</p>
                 </div>
                 <div class="footer-section">
                     <h3>Atendimento</h3>
                     <a href="mailto:sac@neolove.com.br"><i class="fas fa-envelope"></i> sac@neolove.com.br</a>
-                    <a href="tel:+5511999999999"><i class="fas fa-phone"></i> (11) 99999-9999</a>
+                    <a href="tel:+5514998329806"><i class="fas fa-phone"></i> (14) 99832-9806</a>
                     <a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a>
                 </div>
                 <div class="footer-section">
                     <h3>Empresa</h3>
                     <div class="company-info">
                         <p><strong>Razão Social:</strong> NeoLove Tecnologia e Presentes Ltda</p>
-                        <p><strong>CNPJ:</strong> 12.345.678/0001-90</p>
-                        <p><strong>Inscrição Estadual:</strong> 123.456.789.110</p>
-                        <p><strong>Endereço:</strong> Av. Paulista, 1000 - Bela Vista</p>
+                        <p><strong>CNPJ:</strong> 45.678.901/0001-23</p>
+                        <p><strong>Endereço:</strong> Rua das Flores, 123 – Bauru, SP</p>
                     </div>
                 </div>
             </div>
@@ -707,7 +767,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5514998329806" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -740,57 +800,64 @@
 
         let currentProductId = null;
         const products = {
-    urso: {
-        name: "Urso com Colar",
-        description: "Urso de pelúcia com rosa, colar e anel",
-        price: 299.99,
-        image: "urso3.jpg",
-        paymentLink: "https://global.plumify.com.br/mwlh5wy3jw",
-        specifications: [
-            "Altura: 30 cm",
-            "Material: Pelúcia premium com fibra óptica",
-            "Bateria: 48 horas de autonomia",
-            "Conectividade: Bluetooth 5.2 e Wi-Fi",
-            "Recursos: Sensor de toque, projeção holográfica"
-        ],
-        sizes: ["pequeno", "médio", "grande"],
-        materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
-        colors: ["roxo", "rosa", "azul"],
-        accessories: ["colar", "anel"]
-    },
-    rosa: {
-        name: "Rosa com Anel e Colar",
-        description: "Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno",
-        price: 189.99,
-        image: "anel.png",  // ✅ Alterado para anel.png
-        paymentLink: "https://global.plumify.com.br/ruf5b8fg7w",
-        specifications: [
-            "Altura total: 25 cm",
-            "Diâmetro da esfera: 15 cm",
-            "Base: Alumínio anodizado",
-            "Iluminação: LED RGB com 16 milhões de cores",
-            "Alimentação: USB-C (incluso)"
-        ],
-        sizes: ["pequena", "média", "grande"],
-        materials: [],
-        colors: ["vermelha", "rosa", "branca", "azul"]
-    },
-    relogio: {
-        name: "Relicário",
-        description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
-        price: 599.99,
-        image: "fundo.png",  // ✅ Alterado para fundo.png
-        paymentLink: "https://go.plumify.com.br/l4k9fhsrjn",
-        specifications: [
-            "Caixa: 42mm de diâmetro",
-            "Cor em dourado ou prata",
-            "Joia fiel"
-        ],
-        sizes: ["pequeno", "médio", "grande"],
-        materials: ["ouro", "prata", "titânio"],
-        colors: ["preto", "azul", "dourado", "prata"]
-    }
-};
+            urso: {
+                name: "Urso com Colar",
+                description: "Urso de pelúcia com rosa, colar e anel",
+                price: 89.99,
+                image: "urso3.jpg",
+                paymentLink: "https://global.plumify.com.br/mwlh5wy3jw",
+                specifications: [
+                    "Altura: 30 cm",
+                    "Material: Pelúcia premium com fibra óptica",
+                    "Bateria: 48 horas de autonomia",
+                    "Conectividade: Bluetooth 5.2 e Wi-Fi",
+                    "Recursos: Sensor de toque, projeção holográfica"
+                ],
+                sizes: ["pequeno", "médio", "grande"],
+                materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
+                colors: ["roxo", "rosa", "azul"],
+                accessories: ["colar", "anel"]
+            },
+            rosa: {
+                name: "Rosa com Anel e Colar",
+                description: "Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno",
+                price: 59.90,
+                image: "anel.png",
+                paymentLink: "https://global.plumify.com.br/ruf5b8fg7w",
+                specifications: [
+                    "Altura total: 25 cm",
+                    "Diâmetro da esfera: 15 cm",
+                    "Base: Alumínio anodizado",
+                    "Iluminação: LED RGB com 16 milhões de cores",
+                    "Alimentação: USB-C (incluso)"
+                ],
+                sizes: ["pequena", "média", "grande"],
+                materials: [],
+                colors: ["vermelha", "rosa", "branca", "azul"]
+            },
+            relogio: {
+                name: "Relicário",
+                description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
+                price: 99.99,
+                image: "fundo.png",
+                paymentLink: "https://go.plumify.com.br/l4k9fhsrjn",
+                specifications: [
+                    "Caixa: 42mm de diâmetro",
+                    "Cor em dourado ou prata",
+                    "Joia fiel"
+                ],
+                sizes: ["pequeno", "médio", "grande"],
+                materials: ["ouro", "prata", "titânio"],
+                colors: ["preto", "azul", "dourado", "prata"]
+            }
+        };
+
+        // Handle file selection (interface only)
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                alert('Foto anexada com sucesso! (Esta ação é apenas visual neste protótipo.)');
+            }
+        });
 
         function handleAccessoryChange() {
             const ringSizeGroup = document.getElementById('ringSizeGroup');
