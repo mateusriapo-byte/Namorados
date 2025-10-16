@@ -74,7 +74,7 @@
             font-size: 24px;
             font-weight: bold;
         }
-        .login-btn, .user-email {
+        .login-btn, .user-name {
             padding: 8px 16px;
             border-radius: 8px;
             font-weight: 600;
@@ -90,7 +90,7 @@
         .login-btn:hover {
             background: rgba(138, 43, 226, 0.5);
         }
-        .user-email {
+        .user-name {
             background: rgba(0, 0, 0, 0.4);
             color: #8A2BE2;
             border: 1px solid rgba(138, 43, 226, 0.4);
@@ -441,17 +441,13 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeLoginModal()">&times;</button>
-            <h2 class="modal-title">Entrar na sua conta</h2>
+            <h2 class="modal-title">Qual é o seu nome?</h2>
             <form id="loginForm">
                 <div class="form-group">
-                    <label for="loginEmail">E-mail</label>
-                    <input type="email" id="loginEmail" class="form-control" required>
+                    <label for="userName">Seu Nome</label>
+                    <input type="text" id="userName" class="form-control" required placeholder="Digite seu nome">
                 </div>
-                <div class="form-group">
-                    <label for="loginPassword">Senha</label>
-                    <input type="password" id="loginPassword" class="form-control" required>
-                </div>
-                <button type="button" class="btn-submit" onclick="handleLogin()">Entrar</button>
+                <button type="button" class="btn-submit" onclick="handleLogin()">Continuar</button>
             </form>
         </div>
     </div>
@@ -635,4 +631,75 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>NeoLove</h3>
-                    <p>Presentes do 
+                    <p>Presentes do futuro para o amor de hoje. Tecnologia, romance e inovação em cada detalhe.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 – Bauru, SP</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Atendimento</h3>
+                    <a href="mailto:sac@neolove.com.br"><i class="fas fa-envelope"></i> sac@neolove.com.br</a>
+                    <a href="tel:+5514998329806"><i class="fas fa-phone"></i> (14) 99832-9806</a>
+                    <a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <div class="company-info">
+                        <p><strong>Razão Social:</strong> NeoLove Tecnologia e Presentes Ltda</p>
+                        <p><strong>CNPJ:</strong> 45.678.901/0001-23</p>
+                        <p><strong>Endereço:</strong> Rua das Flores, 123 – Bauru, SP</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(138, 43, 226, 0.3);">
+                <p style="color: #64748b; font-size: 14px;">© 2024 NeoLove. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5514998329806" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Session-only name storage
+        let currentUserName = null;
+
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        function handleLogin() {
+            const name = document.getElementById('userName').value.trim();
+            if (name) {
+                currentUserName = name;
+                updateAuthUI();
+                closeLoginModal();
+            }
+        }
+
+        function updateAuthUI() {
+            const container = document.getElementById('authContainer');
+            if (currentUserName) {
+                container.innerHTML = `<div class="user-name">${currentUserName}</div>`;
+            } else {
+                container.innerHTML = `<button class="login-btn" onclick="openLoginModal()"><i class="fas fa-user"></i> Login</button>`;
+            }
+        }
+
+        function changeSlide(productId, index) {
+            const carouselInner = document.getElementById(`carousel-${productId}`);
+            if (carouselInner) {
+                carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
