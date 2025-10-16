@@ -1,949 +1,126 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoLove - Presentes Futuristas para o Dia dos Namorados</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('fundo.png') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
-            z-index: -1;
-        }
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Header Styles - Transparente */
-        header {
-            background: transparent;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .logo-icon i {
-            color: white;
-            font-size: 20px;
-        }
-        .logo-text {
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav {
-            display: none;
-        }
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 80px 0 60px;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero h2 {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 24px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .hero h2 span {
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 50%, #00F5FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-        .hero p {
-            font-size: 20px;
-            color: #a0a0c0;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        /* Products Section */
-        .section {
-            padding: 80px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-top: 40px;
-        }
-        .product-card {
-            background: rgba(30, 30, 46, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .product-card:hover {
-            border-color: rgba(138, 43, 226, 0.6);
-            transform: scale(1.02);
-        }
-        .product-image-container {
-            height: 192px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            background: #1e1e2e;
-            position: relative;
-        }
-        .carousel {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
-        }
-        .carousel-item {
-            min-width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .carousel-item img,
-        .carousel-item video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .product-card:hover .carousel-item img,
-        .product-card:hover .carousel-item video {
-            transform: scale(1.1);
-        }
-        .view-3d-btn {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(0, 0, 0, 0.6);
-            color: #8A2BE2;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .view-3d-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        .product-name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
-        }
-        .product-card:hover .product-name {
-            color: #8A2BE2;
-        }
-        .product-description {
-            color: #a0a0c0;
-            font-size: 14px;
-            margin-bottom: 16px;
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .rating {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        .stars {
-            color: #FFD700;
-            margin-right: 8px;
-        }
-        .rating-value {
-            color: #64748b;
-            font-size: 14px;
-        }
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .product-price {
-            font-size: 24px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .buy-btn {
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        .buy-btn:hover {
-            transform: scale(1.05);
-        }
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(138, 43, 226, 0.3);
-            margin-top: 80px;
-            padding: 60px 0 40px;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .footer-section p, .footer-section a {
-            color: #a0a0c0;
-            text-decoration: none;
-            line-height: 1.6;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s ease;
-        }
-        .footer-section a:hover {
-            color: #8A2BE2;
-        }
-        .company-info {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.8;
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-        }
-        .whatsapp-float i {
-            font-size: 24px;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0D0D15 100%);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 800px;
-            width: 100%;
-            border: 1px solid rgba(138, 43, 226, 0.5);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: transparent;
-            border: none;
-            color: #a0a0c0;
-            font-size: 24px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .close-modal:hover {
-            color: white;
-        }
-        .modal-title {
-            font-size: 28px;
-            margin-bottom: 24px;
-            text-align: center;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .product-details {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-        .modal-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 16px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .details-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .details-info h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-        .details-info p {
-            color: #a0a0c0;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-        .specifications {
-            background: rgba(30, 30, 46, 0.3);
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-        }
-        .specifications h4 {
-            color: #8A2BE2;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .specifications ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .specifications li {
-            color: #a0a0c0;
-            margin-bottom: 4px;
-            font-size: 14px;
-        }
-        .price-display {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 16px 0;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #a0a0c0;
-            font-weight: 500;
-        }
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(30, 30, 46, 0.8);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: #8A2BE2;
-        }
-        .radio-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(138, 43, 226, 0.1);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .radio-option:hover {
-            background: rgba(138, 43, 226, 0.2);
-        }
-        .radio-option input {
-            width: 16px;
-            height: 16px;
-        }
-        .btn-proceed {
-            width: 100%;
-            padding: 16px;
-            font-size: 18px;
-            margin-top: 24px;
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 36px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
-            .header-content {
-                flex-wrap: wrap;
-            }
-            .product-details {
-                flex-direction: column;
-                text-align: center;
-            }
-            .modal-image {
-                margin: 0 auto;
-            }
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-            }
-            .modal-content {
-                padding: 20px;
-            }
-            .hero {
-                min-height: 400px;
-                padding: 60px 0 40px;
-            }
-        }
-        @media (max-width: 480px) {
-            .product-details {
-                flex-direction: column;
-            }
-            .modal-image {
-                width: 150px;
-                height: 150px;
-            }
-            .hero {
-                min-height: 300px;
-                padding: 40px 0 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="logo-text">NeoLove</div>
+<!-- Product 1 - Urso com Colar -->
+<div class="product-card" data-category="joias">
+    <div class="product-image-container">
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-urso">
+                <div class="carousel-item">
+                    <video muted loop playsinline class="carousel-media">
+                        <source src="urso1.mp4" type="video/mp4">
+                        <img src="urso1.jpg" alt="Urso com Colar 1">
+                    </video>
                 </div>
-                <nav></nav>
+                <div class="carousel-item">
+                    <video muted loop playsinline class="carousel-media">
+                        <source src="urso2.mp4" type="video/mp4">
+                        <img src="urso2.jpg" alt="Urso com Colar 2">
+                    </video>
+                </div>
+            </div>
+            <div class="carousel-controls" id="controls-urso">
+                <div class="carousel-dot active" onclick="changeSlide('urso', 0)"></div>
+                <div class="carousel-dot" onclick="changeSlide('urso', 1)"></div>
             </div>
         </div>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>
-                    <span>Presentes do Futuro</span>
-                </h2>
-                <p>Celebre o amor com tecnologia de ponta e designs imersivos que transcendem o tempo e o espaço</p>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Nossos Produtos</h2>
-                <div class="products-grid">
-                    <!-- Product 1 - Urso com Colar -->
-                    <div class="product-card" data-category="joias">
-                        <div class="product-image-container">
-                            <div class="carousel">
-                                <div class="carousel-inner" id="carousel-urso">
-                                    <div class="carousel-item">
-                                        <video muted loop playsinline class="carousel-media">
-                                            <source src="urso1.mp4" type="video/mp4">
-                                            <img src="urso1.jpg" alt="Urso com Colar 1">
-                                        </video>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <video muted loop playsinline class="carousel-media">
-                                            <source src="urso2.mp4" type="video/mp4">
-                                            <img src="urso2.jpg" alt="Urso com Colar 2">
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="carousel-controls" id="controls-urso">
-                                    <div class="carousel-dot active" onclick="changeSlide('urso', 0)"></div>
-                                    <div class="carousel-dot" onclick="changeSlide('urso', 1)"></div>
-                                </div>
-                            </div>
-                            <div class="view-3d-btn">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-name">Urso com Colar</h3>
-                        <p class="product-description">Urso de pelúcia com rosa, colar e anel</p>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="rating-value">(4.8)</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">R$ 299,99</span>
-                            <button class="buy-btn" onclick="openOrderModal('urso')">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                                <a href="https://global.plumify.com.br/mwlh5wy3jw">
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Product 2 - Rosa com Anel e Colar -->
-                    <div class="product-card" data-category="flores">
-                        <div class="product-image-container">
-                            <div class="carousel">
-                                <div class="carousel-inner" id="carousel-rosa">
-                                    <div class="carousel-item">
-                                        <video muted loop playsinline class="carousel-media">
-                                            <source src="rosa1.mp4" type="video/mp4">
-                                            <img src="rosa1.jpg" alt="Rosa com Anel e Colar">
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="carousel-controls" id="controls-rosa">
-                                    <div class="carousel-dot active"></div>
-                                </div>
-                            </div>
-                            <div class="view-3d-btn">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-name">Rosa com Anel e Colar</h3>
-                        <p class="product-description">Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno</p>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-value">(4.9)</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">R$ 189,99</span>
-                            <button class="buy-btn" onclick="openOrderModal('urso')">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                                <a href="https://global.plumify.com.br/ruf5b8fg7w">
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Product 3 - Relicário -->
-                    <div class="product-card" data-category="tecnologia">
-                        <div class="product-image-container">
-                            <div class="carousel">
-                                <div class="carousel-inner" id="carousel-relogio">
-                                    <div class="carousel-item">
-                                        <video muted loop playsinline class="carousel-media">
-                                            <source src="colar.mp4" type="video/mp4">
-                                            <img src="fundo.png" alt="Relicário">
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="carousel-controls" id="controls-relogio">
-                                    <div class="carousel-dot active"></div>
-                                </div>
-                            </div>
-                            <div class="view-3d-btn">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-name">Relicário</h3>
-                        <p class="product-description">Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica</p>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="rating-value">(4.7)</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="product-price">R$ 599,99</span>
-                            <button class="buy-btn" onclick="openOrderModal('urso')">
-                                  <i class="fas fa-shopping-cart"></i> Comprar
-                                <a href="https://go.plumify.com.br/l4k9fhsrjn">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Order Modal -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <h2 class="modal-title">Detalhes do Pedido</h2>
-            <div class="product-details">
-                <img id="modalImage" src="" alt="Produto" class="modal-image">
-                <div class="details-info">
-                    <h3 id="modalProductName"></h3>
-                    <p id="modalDescription"></p>
-                    <div class="specifications">
-                        <h4>Especificações Técnicas:</h4>
-                        <ul id="modalSpecifications"></ul>
-                    </div>
-                    <div class="price-display" id="modalPrice">R$ 299,99</div>
-                </div>
-            </div>
-            <form id="orderForm">
-                <div class="form-group" id="accessoryGroup">
-                    <label>Acessório:</label>
-                    <div class="radio-group" id="accessoryOptions"></div>
-                </div>
-                <div class="form-group" id="ringSizeGroup" style="display: none;">
-                    <label for="ringSize">Tamanho do Anel:</label>
-                    <select id="ringSize" class="form-control"></select>
-                </div>
-                <div class="form-group" id="sizeGroup">
-                    <label for="size">Tamanho:</label>
-                    <select id="size" class="form-control"></select>
-                </div>
-                <div class="form-group" id="materialGroup">
-                    <label>Material:</label>
-                    <div class="radio-group" id="materialOptions"></div>
-                </div>
-                <div class="form-group" id="colorGroup">
-                    <label for="color">Cor:</label>
-                    <select id="color" class="form-control"></select>
-                </div>
-                <button type="button" class="btn btn-primary btn-proceed" onclick="proceedToCheckout()">
-                    Ir para Pagamento
-                </button>
-            </form>
+        <div class="view-3d-btn">
+            <i class="fas fa-search-plus"></i>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>NeoLove</h3>
-                    <p>Presentes do futuro para o amor de hoje. Tecnologia, romance e inovação em cada detalhe.</p>
-                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP - Brasil</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Atendimento</h3>
-                    <a href="sac@neolove.com.br"><i class="fas fa-envelope"></i> sac@neolove.com.br</a>
-                    <a href="tel:+5511999999999"><i class="fas fa-phone"></i> (11) 99999-9999</a>
-                    <a href="#"><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Empresa</h3>
-                    <div class="company-info">
-                        <p><strong>Razão Social:</strong> NeoLove Tecnologia e Presentes Ltda</p>
-                        <p><strong>CNPJ:</strong> 12.345.678/0001-90</p>
-                        <p><strong>Inscrição Estadual:</strong> 123.456.789.110</p>
-                        <p><strong>Endereço:</strong> Av. Paulista, 1000 - Bela Vista</p>
-                    </div>
+    <h3 class="product-name">Urso com Colar</h3>
+    <p class="product-description">Urso de pelúcia com rosa, colar e anel</p>
+    <div class="rating">
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <span class="rating-value">(4.8)</span>
+    </div>
+    <div class="product-footer">
+        <span class="product-price">R$ 299,99</span>
+        <button class="buy-btn" onclick="openOrderModal('urso')">
+            <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+    </div>
+</div>
+
+<!-- Product 2 - Rosa com Anel e Colar -->
+<div class="product-card" data-category="flores">
+    <div class="product-image-container">
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-rosa">
+                <div class="carousel-item">
+                    <video muted loop playsinline class="carousel-media">
+                        <source src="rosa1.mp4" type="video/mp4">
+                        <img src="rosa1.jpg" alt="Rosa com Anel e Colar">
+                    </video>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(138, 43, 226, 0.3);">
-                <p style="color: #64748b; font-size: 14px;">© 2024 NeoLove. Todos os direitos reservados.</p>
+            <div class="carousel-controls" id="controls-rosa">
+                <div class="carousel-dot active"></div>
             </div>
         </div>
-    </footer>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <script>
-        // Carousel functionality
-        function changeSlide(productId, index) {
-            const carouselInner = document.getElementById(`carousel-${productId}`);
-            const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
-            carouselInner.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => {
-                if (i === index) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
-            const videos = carouselInner.querySelectorAll('video');
-            videos.forEach((video, i) => {
-                if (i === index) video.play().catch(e => console.log('Autoplay prevented:', e));
-                else video.pause();
-            });
-        }
-        // Auto-rotate carousels (only for urso)
-        function autoRotateCarousels() {
-            const ursoDots = document.querySelectorAll('#controls-urso .carousel-dot');
-            if (ursoDots.length > 1) {
-                let currentIndex = 0;
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % ursoDots.length;
-                    changeSlide('urso', currentIndex);
-                }, 5000);
-            }
-        }
-        // Product data
-        let currentProductId = null;
-        const products = {
-            urso: {
-                name: "Urso com Colar",
-                description: "Urso de pelúcia com rosa, colar e anel",
-                price: 299.99,
-                image: "urso3.jpg",
-                paymentLink: "https://global.plumify.com.br/mwlh5wy3jw",
-                specifications: [
-                    "Altura: 30 cm",
-                    "Material: Pelúcia premium com fibra óptica",
-                    "Bateria: 48 horas de autonomia",
-                    "Conectividade: Bluetooth 5.2 e Wi-Fi",
-                    "Recursos: Sensor de toque, projeção holográfica"
-                ],
-                sizes: ["pequeno", "médio", "grande"],
-                materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
-                colors: ["roxo", "rosa", "azul"],
-                accessories: ["colar", "anel"]
-            },
-            rosa: {
-                name: "Rosa com Anel e Colar",
-                description: "Rosa eterna com anel e colar- o símbolo perfeito do amor eterno",
-                price: 189.99,
-                image: "rosa.mp4",
-                paymentLink: "https://global.plumify.com.br/ruf5b8fg7w",
-                specifications: [
-                    "Altura total: 25 cm",
-                    "Diâmetro da esfera: 15 cm",
-                    "Base: Alumínio anodizado",
-                    "Iluminação: LED RGB com 16 milhões de cores",
-                    "Alimentação: USB-C (incluso)"
-                ],
-                sizes: ["pequena", "média", "grande"],
-                materials: [],
-                colors: ["vermelha", "rosa", "branca", "azul"]
-            },
-            relogio: {
-                name: "Relicário",
-                description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
-                price: 599.99,
-                image: "colar.mp4",
-                paymentLink: "https://go.plumify.com.br/l4k9fhsrjn",
-                specifications: [
-                    "Caixa: 42mm de diâmetro",
-                    "Cor em dourado ou prata",
-                    "Joia fiel"
-                ],
-                sizes: ["pequeno", "médio", "grande"],
-                materials: ["ouro", "prata", "titânio"],
-                colors: ["preto", "azul", "dourado", "prata"]
-            }
-        };
-        function handleAccessoryChange() {
-            const ringSizeGroup = document.getElementById('ringSizeGroup');
-            const ringSizeSelect = document.getElementById('ringSize');
-            const selectedAccessory = document.querySelector('input[name="accessory"]:checked')?.value;
-            if (selectedAccessory === 'anel') {
-                ringSizeGroup.style.display = 'block';
-                ringSizeSelect.innerHTML = '';
-                for (let i = 13; i <= 23; i++) {
-                    const option = document.createElement('option');
-                    option.value = i;
-                    option.textContent = `Tamanho ${i}`;
-                    ringSizeSelect.appendChild(option);
-                }
-            } else {
-                ringSizeGroup.style.display = 'none';
-            }
-        }
-        function openOrderModal(productId) {
-            currentProductId = productId;
-            const product = products[productId];
-            if (!product) return;
-            document.getElementById('modalImage').src = product.image;
-            document.getElementById('modalProductName').textContent = product.name;
-            document.getElementById('modalDescription').textContent = product.description;
-            document.getElementById('modalPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
-            const specsList = document.getElementById('modalSpecifications');
-            specsList.innerHTML = '';
-            product.specifications.forEach(spec => {
-                const li = document.createElement('li');
-                li.textContent = spec;
-                specsList.appendChild(li);
-            });
-            const accessoryGroup = document.getElementById('accessoryGroup');
-            const accessoryOptions = document.getElementById('accessoryOptions');
-            if (productId === 'urso' && product.accessories) {
-                accessoryGroup.style.display = 'block';
-                accessoryOptions.innerHTML = '';
-                product.accessories.forEach(accessory => {
-                    const div = document.createElement('div');
-                    div.className = 'radio-option';
-                    div.innerHTML = `
-                        <input type="radio" id="${accessory}" name="accessory" value="${accessory}" ${accessory === 'colar' ? 'checked' : ''} onchange="handleAccessoryChange()">
-                        <label for="${accessory}">${accessory.charAt(0).toUpperCase() + accessory.slice(1)}</label>
-                    `;
-                    accessoryOptions.appendChild(div);
-                });
-                handleAccessoryChange();
-            } else {
-                accessoryGroup.style.display = 'none';
-                document.getElementById('ringSizeGroup').style.display = 'none';
-            }
-            const sizeGroup = document.getElementById('sizeGroup');
-            const materialGroup = document.getElementById('materialGroup');
-            const colorGroup = document.getElementById('colorGroup');
-            const sizeSelect = document.getElementById('size');
-            const materialOptions = document.getElementById('materialOptions');
-            const colorSelect = document.getElementById('color');
-            if (product.sizes.length > 0) {
-                sizeGroup.style.display = 'block';
-                sizeSelect.innerHTML = '';
-                product.sizes.forEach(size => {
-                    const option = document.createElement('option');
-                    option.value = size;
-                    option.textContent = size.charAt(0).toUpperCase() + size.slice(1);
-                    sizeSelect.appendChild(option);
-                });
-            } else {
-                sizeGroup.style.display = 'none';
-            }
-            if (product.materials.length > 0) {
-                materialGroup.style.display = 'block';
-                materialOptions.innerHTML = '';
-                product.materials.forEach(material => {
-                    const div = document.createElement('div');
-                    div.className = 'radio-option';
-                    div.innerHTML = `
-                        <input type="radio" id="${material}" name="material" value="${material}" checked>
-                        <label for="${material}">${material.charAt(0).toUpperCase() + material.slice(1)}</label>
-                    `;
-                    materialOptions.appendChild(div);
-                });
-            } else {
-                materialGroup.style.display = 'none';
-            }
-            if (product.colors.length > 0) {
-                colorGroup.style.display = 'block';
-                colorSelect.innerHTML = '';
-                product.colors.forEach(color => {
-                    const option = document.createElement('option');
-                    option.value = color;
-                    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
-                    colorSelect.appendChild(option);
-                });
-            } else {
-                colorGroup.style.display = 'none';
-            }
-            document.getElementById('orderModal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('orderModal').style.display = 'none';
-            currentProductId = null;
-        }
-        function proceedToCheckout() {
-            if (!currentProductId) return;
-            const product = products[currentProductId];
-            window.location.href = product.paymentLink;
-        }
-        window.onclick = function(event) {
-            const orderModal = document.getElementById('orderModal');
-            if (event.target === orderModal) closeModal();
-        };
-        document.addEventListener('DOMContentLoaded', function() {
-            autoRotateCarousels();
-            const carousels = ['urso', 'rosa', 'relogio'];
-            carousels.forEach(carouselId => {
-                const firstVideo = document.querySelector(`#carousel-${carouselId} .carousel-item:first-child video`);
-                if (firstVideo) firstVideo.play().catch(e => console.log('Autoplay prevented:', e));
-            });
-        });
-    </script>
-</body>
-</html>
+        <div class="view-3d-btn">
+            <i class="fas fa-search-plus"></i>
+        </div>
+    </div>
+    <h3 class="product-name">Rosa com Anel e Colar</h3>
+    <p class="product-description">Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno</p>
+    <div class="rating">
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <span class="rating-value">(4.9)</span>
+    </div>
+    <div class="product-footer">
+        <span class="product-price">R$ 189,99</span>
+        <button class="buy-btn" onclick="openOrderModal('rosa')">
+            <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+    </div>
+</div>
+
+<!-- Product 3 - Relicário -->
+<div class="product-card" data-category="tecnologia">
+    <div class="product-image-container">
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-relogio">
+                <div class="carousel-item">
+                    <video muted loop playsinline class="carousel-media">
+                        <source src="colar.mp4" type="video/mp4">
+                        <img src="colar.jpg" alt="Relicário inteligente com projeção holográfica">
+                    </video>
+                </div>
+            </div>
+            <div class="carousel-controls" id="controls-relogio">
+                <div class="carousel-dot active"></div>
+            </div>
+        </div>
+        <div class="view-3d-btn">
+            <i class="fas fa-search-plus"></i>
+        </div>
+    </div>
+    <h3 class="product-name">Relicário</h3>
+    <p class="product-description">Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica</p>
+    <div class="rating">
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <span class="rating-value">(4.7)</span>
+    </div>
+    <div class="product-footer">
+        <span class="product-price">R$ 599,99</span>
+        <button class="buy-btn" onclick="openOrderModal('relogio')">
+            <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+    </div>
+</div>
