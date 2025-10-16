@@ -44,8 +44,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,9 +74,98 @@
             font-size: 24px;
             font-weight: bold;
         }
-        nav {
-            display: none;
+        .login-btn {
+            background: rgba(138, 43, 226, 0.3);
+            color: white;
+            border: 1px solid rgba(138, 43, 226, 0.6);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
+        .login-btn:hover {
+            background: rgba(138, 43, 226, 0.5);
+        }
+
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0D0D15 100%);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: #a0a0c0;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .close-modal:hover {
+            color: white;
+        }
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a0a0c0;
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(30, 30, 46, 0.8);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #8A2BE2;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
         .hero {
             text-align: center;
             padding: 80px 0 60px;
@@ -168,10 +255,6 @@
             height: 100%;
             object-fit: cover;
         }
-        .product-card:hover .carousel-item img,
-        .product-card:hover .carousel-item video {
-            transform: scale(1.1);
-        }
         .view-3d-btn {
             position: absolute;
             top: 16px;
@@ -187,17 +270,11 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-        .view-3d-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
         .product-name {
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 12px;
             transition: color 0.3s ease;
-        }
-        .product-card:hover .product-name {
-            color: #8A2BE2;
         }
         .product-description {
             color: #a0a0c0;
@@ -264,11 +341,6 @@
         .file-input {
             display: none;
         }
-
-        /* Feedbacks */
-        .feedbacks-section {
-            padding: 60px 0;
-        }
         .feedback-card {
             background: rgba(30, 30, 46, 0.4);
             border-radius: 12px;
@@ -287,7 +359,6 @@
             font-weight: 600;
             font-size: 14px;
         }
-
         footer {
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
@@ -347,191 +418,73 @@
         .whatsapp-float i {
             font-size: 24px;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0D0D15 100%);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 800px;
-            width: 100%;
-            border: 1px solid rgba(138, 43, 226, 0.5);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: transparent;
-            border: none;
-            color: #a0a0c0;
-            font-size: 24px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .close-modal:hover {
-            color: white;
-        }
-        .modal-title {
-            font-size: 28px;
-            margin-bottom: 24px;
-            text-align: center;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .product-details {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-        .modal-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 16px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .details-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .details-info h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-        .details-info p {
-            color: #a0a0c0;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-        .specifications {
-            background: rgba(30, 30, 46, 0.3);
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-        }
-        .specifications h4 {
-            color: #8A2BE2;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .specifications ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .specifications li {
-            color: #a0a0c0;
-            margin-bottom: 4px;
-            font-size: 14px;
-        }
-        .price-display {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 16px 0;
-            background: linear-gradient(135deg, #8A2BE2 0%, #FF00C8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #a0a0c0;
-            font-weight: 500;
-        }
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(30, 30, 46, 0.8);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: #8A2BE2;
-        }
-        .radio-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(138, 43, 226, 0.1);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .radio-option:hover {
-            background: rgba(138, 43, 226, 0.2);
-        }
-        .radio-option input {
-            width: 16px;
-            height: 16px;
-        }
-        .btn-proceed {
-            width: 100%;
-            padding: 16px;
-            font-size: 18px;
-            margin-top: 24px;
-        }
         @media (max-width: 768px) {
-            .hero h2 { font-size: 36px; }
-            .hero p { font-size: 16px; }
-            .header-content { flex-wrap: wrap; }
-            .product-details { flex-direction: column; text-align: center; }
-            .modal-image { margin: 0 auto; }
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .modal-content { padding: 20px; }
-            .hero { min-height: 400px; padding: 60px 0 40px; }
+            header {
+                flex-wrap: wrap;
+            }
             .product-footer {
                 flex-direction: column;
                 gap: 12px;
                 align-items: flex-start;
             }
         }
-        @media (max-width: 480px) {
-            .modal-image { width: 150px; height: 150px; }
-            .hero { min-height: 300px; padding: 40px 0 20px; }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="logo-text">NeoLove</div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeLoginModal()">&times;</button>
+            <h2 class="modal-title">Entrar na sua conta</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">E-mail</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
                 </div>
-                <nav></nav>
-            </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="button" class="btn-submit" onclick="handleLogin()">Entrar</button>
+            </form>
         </div>
+    </div>
+
+    <!-- Photo Submission Modal -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closePhotoModal()">&times;</button>
+            <h2 class="modal-title">Enviar Foto para Personalização</h2>
+            <form id="photoForm">
+                <div class="form-group">
+                    <label for="clientName">Seu Nome</label>
+                    <input type="text" id="clientName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Seu E-mail</label>
+                    <input type="email" id="clientEmail" class="form-control" required>
+                </div>
+                <p style="color: #a0a0c0; font-size: 14px; margin-bottom: 16px;">
+                    Após enviar, você será redirecionado ao WhatsApp para enviar sua foto manualmente.
+                </p>
+                <button type="button" class="btn-submit" onclick="sendToWhatsApp()">Enviar para WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="logo-text">NeoLove</div>
+        </div>
+        <button class="login-btn" onclick="openLoginModal()">
+            <i class="fas fa-user"></i> Login
+        </button>
     </header>
+
     <main>
         <section class="hero">
             <div class="hero-content">
@@ -673,13 +626,12 @@
                         <div class="product-footer">
                             <span class="product-price">R$ 99,99</span>
                             <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
-                                <button class="attach-btn" onclick="document.getElementById('fileInput').click()">
+                                <button class="attach-btn" onclick="openPhotoModal()">
                                     <i class="fas fa-paperclip"></i> Anexar Foto
                                 </button>
                                 <button class="buy-btn" onclick="openOrderModal('relogio')">
                                     <i class="fas fa-shopping-cart"></i> Comprar
                                 </button>
-                                <input type="file" id="fileInput" class="file-input" accept="image/*">
                             </div>
                         </div>
                         <div class="feedback-card">
@@ -692,48 +644,13 @@
         </section>
     </main>
 
-    <!-- Order Modal -->
+    <!-- Order Modal (simplified, kept for compatibility) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <button class="close-modal" onclick="closeOrderModal()">&times;</button>
             <h2 class="modal-title">Detalhes do Pedido</h2>
-            <div class="product-details">
-                <img id="modalImage" src="" alt="Produto" class="modal-image">
-                <div class="details-info">
-                    <h3 id="modalProductName"></h3>
-                    <p id="modalDescription"></p>
-                    <div class="specifications">
-                        <h4>Especificações Técnicas:</h4>
-                        <ul id="modalSpecifications"></ul>
-                    </div>
-                    <div class="price-display" id="modalPrice">R$ 89,99</div>
-                </div>
-            </div>
-            <form id="orderForm">
-                <div class="form-group" id="accessoryGroup">
-                    <label>Acessório:</label>
-                    <div class="radio-group" id="accessoryOptions"></div>
-                </div>
-                <div class="form-group" id="ringSizeGroup" style="display: none;">
-                    <label for="ringSize">Tamanho do Anel:</label>
-                    <select id="ringSize" class="form-control"></select>
-                </div>
-                <div class="form-group" id="sizeGroup">
-                    <label for="size">Tamanho:</label>
-                    <select id="size" class="form-control"></select>
-                </div>
-                <div class="form-group" id="materialGroup">
-                    <label>Material:</label>
-                    <div class="radio-group" id="materialOptions"></div>
-                </div>
-                <div class="form-group" id="colorGroup">
-                    <label for="color">Cor:</label>
-                    <select id="color" class="form-control"></select>
-                </div>
-                <button type="button" class="btn-proceed" onclick="proceedToCheckout()">
-                    Ir para Pagamento
-                </button>
-            </form>
+            <p style="color: #a0a0c0; text-align: center;">Selecione as opções desejadas.</p>
+            <button class="btn-submit" style="margin-top: 20px;" onclick="proceedToCheckout()">Ir para Pagamento</button>
         </div>
     </div>
 
@@ -772,225 +689,72 @@
     </a>
 
     <script>
+        // --- Login Modal ---
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            alert(`Login simulado com sucesso!\nE-mail: ${email}`);
+            closeLoginModal();
+        }
+
+        // --- Photo Modal ---
+        function openPhotoModal() {
+            document.getElementById('photoModal').style.display = 'flex';
+        }
+        function closePhotoModal() {
+            document.getElementById('photoModal').style.display = 'none';
+        }
+        function sendToWhatsApp() {
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            if (!name || !email) {
+                alert('Por favor, preencha nome e e-mail.');
+                return;
+            }
+
+            const message = `Olá! Aqui está minha foto para personalização do Relicário:%0A%0A*Nome:* ${name}%0A*E-mail:* ${email}%0A%0APor favor, confirmem o recebimento e instruções para envio da imagem.`;
+            const whatsappURL = `https://wa.me/5514998329806?text=${message}`;
+            window.open(whatsappURL, '_blank');
+            closePhotoModal();
+        }
+
+        // --- Order Modal (simplified) ---
+        function openOrderModal(productId) {
+            // For demo, just redirect
+            const links = {
+                urso: "https://global.plumify.com.br/mwlh5wy3jw",
+                rosa: "https://global.plumify.com.br/ruf5b8fg7w",
+                relogio: "https://go.plumify.com.br/l4k9fhsrjn"
+            };
+            window.location.href = links[productId];
+        }
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+        function proceedToCheckout() {
+            alert('Redirecionando para pagamento...');
+            closeOrderModal();
+        }
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+
+        // Carousel (simplified)
         function changeSlide(productId, index) {
             const carouselInner = document.getElementById(`carousel-${productId}`);
-            const dots = document.querySelectorAll(`#controls-${productId} .carousel-dot`);
-            carouselInner.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => {
-                if (i === index) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
-            const videos = carouselInner.querySelectorAll('video');
-            videos.forEach((video, i) => {
-                if (i === index) video.play().catch(e => console.log('Autoplay prevented:', e));
-                else video.pause();
-            });
-        }
-
-        function autoRotateCarousels() {
-            const ursoDots = document.querySelectorAll('#controls-urso .carousel-dot');
-            if (ursoDots.length > 1) {
-                let currentIndex = 0;
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % ursoDots.length;
-                    changeSlide('urso', currentIndex);
-                }, 5000);
+            if (carouselInner) {
+                carouselInner.style.transform = `translateX(-${index * 100}%)`;
             }
         }
-
-        let currentProductId = null;
-        const products = {
-            urso: {
-                name: "Urso com Colar",
-                description: "Urso de pelúcia com rosa, colar e anel",
-                price: 89.99,
-                image: "urso3.jpg",
-                paymentLink: "https://global.plumify.com.br/mwlh5wy3jw",
-                specifications: [
-                    "Altura: 30 cm",
-                    "Material: Pelúcia premium com fibra óptica",
-                    "Bateria: 48 horas de autonomia",
-                    "Conectividade: Bluetooth 5.2 e Wi-Fi",
-                    "Recursos: Sensor de toque, projeção holográfica"
-                ],
-                sizes: ["pequeno", "médio", "grande"],
-                materials: ["pelúcia branca", "pelúcia marrom", "pelúcia preta"],
-                colors: ["roxo", "rosa", "azul"],
-                accessories: ["colar", "anel"]
-            },
-            rosa: {
-                name: "Rosa com Anel e Colar",
-                description: "Rosa eterna com anel e colar e brincos - o símbolo perfeito do amor eterno",
-                price: 59.90,
-                image: "anel.png",
-                paymentLink: "https://global.plumify.com.br/ruf5b8fg7w",
-                specifications: [
-                    "Altura total: 25 cm",
-                    "Diâmetro da esfera: 15 cm",
-                    "Base: Alumínio anodizado",
-                    "Iluminação: LED RGB com 16 milhões de cores",
-                    "Alimentação: USB-C (incluso)"
-                ],
-                sizes: ["pequena", "média", "grande"],
-                materials: [],
-                colors: ["vermelha", "rosa", "branca", "azul"]
-            },
-            relogio: {
-                name: "Relicário",
-                description: "Guarde seu amor mais precioso neste relicário inteligente com projeção holográfica",
-                price: 99.99,
-                image: "fundo.png",
-                paymentLink: "https://go.plumify.com.br/l4k9fhsrjn",
-                specifications: [
-                    "Caixa: 42mm de diâmetro",
-                    "Cor em dourado ou prata",
-                    "Joia fiel"
-                ],
-                sizes: ["pequeno", "médio", "grande"],
-                materials: ["ouro", "prata", "titânio"],
-                colors: ["preto", "azul", "dourado", "prata"]
-            }
-        };
-
-        // Handle file selection (interface only)
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                alert('Foto anexada com sucesso! (Esta ação é apenas visual neste protótipo.)');
-            }
-        });
-
-        function handleAccessoryChange() {
-            const ringSizeGroup = document.getElementById('ringSizeGroup');
-            const ringSizeSelect = document.getElementById('ringSize');
-            const selectedAccessory = document.querySelector('input[name="accessory"]:checked')?.value;
-            if (selectedAccessory === 'anel') {
-                ringSizeGroup.style.display = 'block';
-                ringSizeSelect.innerHTML = '';
-                for (let i = 13; i <= 23; i++) {
-                    const option = document.createElement('option');
-                    option.value = i;
-                    option.textContent = `Tamanho ${i}`;
-                    ringSizeSelect.appendChild(option);
-                }
-            } else {
-                ringSizeGroup.style.display = 'none';
-            }
-        }
-
-        function openOrderModal(productId) {
-            currentProductId = productId;
-            const product = products[productId];
-            if (!product) return;
-
-            document.getElementById('modalImage').src = product.image;
-            document.getElementById('modalProductName').textContent = product.name;
-            document.getElementById('modalDescription').textContent = product.description;
-            document.getElementById('modalPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
-
-            const specsList = document.getElementById('modalSpecifications');
-            specsList.innerHTML = '';
-            product.specifications.forEach(spec => {
-                const li = document.createElement('li');
-                li.textContent = spec;
-                specsList.appendChild(li);
-            });
-
-            const accessoryGroup = document.getElementById('accessoryGroup');
-            const accessoryOptions = document.getElementById('accessoryOptions');
-            if (productId === 'urso' && product.accessories) {
-                accessoryGroup.style.display = 'block';
-                accessoryOptions.innerHTML = '';
-                product.accessories.forEach(accessory => {
-                    const div = document.createElement('div');
-                    div.className = 'radio-option';
-                    div.innerHTML = `
-                        <input type="radio" id="${accessory}" name="accessory" value="${accessory}" ${accessory === 'colar' ? 'checked' : ''} onchange="handleAccessoryChange()">
-                        <label for="${accessory}">${accessory.charAt(0).toUpperCase() + accessory.slice(1)}</label>
-                    `;
-                    accessoryOptions.appendChild(div);
-                });
-                handleAccessoryChange();
-            } else {
-                accessoryGroup.style.display = 'none';
-                document.getElementById('ringSizeGroup').style.display = 'none';
-            }
-
-            const sizeGroup = document.getElementById('sizeGroup');
-            const materialGroup = document.getElementById('materialGroup');
-            const colorGroup = document.getElementById('colorGroup');
-            const sizeSelect = document.getElementById('size');
-            const materialOptions = document.getElementById('materialOptions');
-            const colorSelect = document.getElementById('color');
-
-            if (product.sizes.length > 0) {
-                sizeGroup.style.display = 'block';
-                sizeSelect.innerHTML = '';
-                product.sizes.forEach(size => {
-                    const option = document.createElement('option');
-                    option.value = size;
-                    option.textContent = size.charAt(0).toUpperCase() + size.slice(1);
-                    sizeSelect.appendChild(option);
-                });
-            } else {
-                sizeGroup.style.display = 'none';
-            }
-
-            if (product.materials.length > 0) {
-                materialGroup.style.display = 'block';
-                materialOptions.innerHTML = '';
-                product.materials.forEach(material => {
-                    const div = document.createElement('div');
-                    div.className = 'radio-option';
-                    div.innerHTML = `
-                        <input type="radio" id="${material}" name="material" value="${material}" checked>
-                        <label for="${material}">${material.charAt(0).toUpperCase() + material.slice(1)}</label>
-                    `;
-                    materialOptions.appendChild(div);
-                });
-            } else {
-                materialGroup.style.display = 'none';
-            }
-
-            if (product.colors.length > 0) {
-                colorGroup.style.display = 'block';
-                colorSelect.innerHTML = '';
-                product.colors.forEach(color => {
-                    const option = document.createElement('option');
-                    option.value = color;
-                    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
-                    colorSelect.appendChild(option);
-                });
-            } else {
-                colorGroup.style.display = 'none';
-            }
-
-            document.getElementById('orderModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('orderModal').style.display = 'none';
-            currentProductId = null;
-        }
-
-        function proceedToCheckout() {
-            if (!currentProductId) return;
-            const product = products[currentProductId];
-            window.location.href = product.paymentLink;
-        }
-
-        window.onclick = function(event) {
-            const orderModal = document.getElementById('orderModal');
-            if (event.target === orderModal) closeModal();
-        };
-
-        document.addEventListener('DOMContentLoaded', function() {
-            autoRotateCarousels();
-            const carousels = ['urso', 'rosa', 'relogio'];
-            carousels.forEach(carouselId => {
-                const firstVideo = document.querySelector(`#carousel-${carouselId} .carousel-item:first-child video`);
-                if (firstVideo) firstVideo.play().catch(e => console.log('Autoplay prevented:', e));
-            });
-        });
     </script>
 </body>
 </html>
